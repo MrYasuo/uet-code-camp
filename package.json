@@ -16,7 +16,8 @@
 		"antd": "^5.3.3",
 		"react": "experimental",
 		"react-dom": "experimental",
-		"react-router-dom": "^6.10.0"
+		"react-router-dom": "^6.10.0",
+		"react-type-animation": "^3.0.1"
 	},
 	"overrides": {
 		"react": "$react",

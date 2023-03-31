@@ -5,5 +5,6 @@ import RoadMap from "./RoadMap";
 import About from "./About";
 import CoursesMenu from "./CoursesMenu";
 import Contact from "./Contact";
+import Footer from "./Footer";
 
-export { Header, CoursesMenu, Sidebar, Home, RoadMap, About, Contact };
+export { Header, Footer, CoursesMenu, Sidebar, Home, RoadMap, About, Contact };
