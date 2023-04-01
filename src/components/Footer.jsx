@@ -20,7 +20,7 @@ const Footer = () => {
 		<Row gutter={[16, 16]}>
 			<Col xs={24} xl={12} md={24} style={colStyle}>
 				<Space direction="vertical" size="small">
-					<Typography.Title level={4} className="center-text">
+					<Typography.Title level={4} className="center-text no-margin-bottom">
 						UET Code Camp
 					</Typography.Title>
 					<Typography.Text>
@@ -31,18 +31,28 @@ const Footer = () => {
 			</Col>
 			<Col xs={24} xl={4} md={5} style={colStyle}>
 				<Space direction="vertical" size="small">
-					<Typography.Title level={4} className="center-text">
+					<Typography.Title level={4} className="center-text no-margin-bottom">
 						Đường dẫn
 					</Typography.Title>
-					<CustomBtn>Trang chủ</CustomBtn>
-					<CustomBtn>Lộ trình</CustomBtn>
-					<CustomBtn>Về chúng tôi</CustomBtn>
-					<CustomBtn>Liên hệ</CustomBtn>
+					<Row>
+						<Col xs={24} style={colStyle}>
+							<CustomBtn>Trang chủ</CustomBtn>
+						</Col>
+						<Col xs={24} style={colStyle}>
+							<CustomBtn>Lộ trình</CustomBtn>
+						</Col>
+						<Col xs={24} style={colStyle}>
+							<CustomBtn>Về chúng tôi</CustomBtn>
+						</Col>
+						<Col xs={24} style={colStyle}>
+							<CustomBtn>Liên hệ</CustomBtn>
+						</Col>
+					</Row>
 				</Space>
 			</Col>
 			<Col xs={24} xl={4} md={5} style={colStyle}>
 				<Space direction="vertical" size="small">
-					<Typography.Title level={4} className="center-text">
+					<Typography.Title level={4} className="center-text no-margin-bottom">
 						Chuyên mục
 					</Typography.Title>
 					<CustomBtn>Phát triển web</CustomBtn>
@@ -50,7 +60,7 @@ const Footer = () => {
 			</Col>
 			<Col xs={24} xl={4} md={5} style={colStyle}>
 				<Space direction="vertical" size="small">
-					<Typography.Title level={4} className="center-text">
+					<Typography.Title level={4} className="center-text no-margin-bottom">
 						Liên lạc
 					</Typography.Title>
 					<CustomBtn>uetcodecamp@gmail.com</CustomBtn>

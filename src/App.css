@@ -58,10 +58,7 @@ span {
 	justify-content: center;
 }
 
-/* .ant-space-item {
-	display: flex;
-	justify-content: center;
-} */
+/* Atomic */
 
 .center-text {
 	text-align: center;
@@ -69,4 +66,8 @@ span {
 
 .white-bg {
 	background-color: white;
+}
+
+.no-margin-bottom {
+	margin-bottom: 0 !important;
 }
