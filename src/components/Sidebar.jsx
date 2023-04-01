@@ -1,51 +1,25 @@
 import { Space, Button, Typography, Divider } from "antd";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-	faBlog,
-	faHouse,
-	faRoad,
-	faAddressCard,
-	faComments,
-	faClock,
-	faBookOpenReader,
-} from "@fortawesome/free-solid-svg-icons";
 import { Link, useLocation } from "react-router-dom";
+import { MENU_BUTTONS_LIST } from "@/constants";
 
-const buttonsList = {
-	Blog: {
-		href: "#",
-		icon: <FontAwesomeIcon icon={faBlog} />,
-	},
-	"Trang chủ": {
-		href: "/",
-		icon: <FontAwesomeIcon icon={faHouse} />,
-	},
-	"Lộ trình": {
-		href: "/roadmap",
-		icon: <FontAwesomeIcon icon={faRoad} />,
-	},
-	"Về chúng tôi": {
-		href: "/about",
-		icon: <FontAwesomeIcon icon={faAddressCard} />,
-	},
-	"Liên hệ": {
-		href: "/contact",
-		icon: <FontAwesomeIcon icon={faComments} />,
-	},
-};
-
-const additionalButtons = {
-	"Thời gian": {
-		href: "/roadmap",
-		icon: <FontAwesomeIcon icon={faClock} />,
-	},
-	"Các khoá học": {
-		href: "/courses",
-		icon: <FontAwesomeIcon icon={faBookOpenReader} />,
-	},
+const AdditionalButtons = ({ buttons }) => {
+	return (
+		<>
+			<Divider style={{ margin: "5px 0" }} />
+			<Buttons buttons={buttons} />
+		</>
+	);
 };
 
 const Buttons = ({ buttons }) => {
+	const location = useLocation();
+	const additionalButtons = Object.keys(buttons).filter((button) => {
+		const children = buttons[button].children;
+		if (children)
+			return Object.keys(children).some(
+				(child) => location.pathname === children[child]["href"]
+			);
+	});
 	return (
 		<Space direction="vertical" align="center">
 			{Object.keys(buttons).map((buttonName, i) => (
@@ -58,24 +32,23 @@ const Buttons = ({ buttons }) => {
 					</Button>
 				</Link>
 			))}
+			{additionalButtons.length > 0 && (
+				<AdditionalButtons
+					buttons={buttons[additionalButtons[0]]["children"]}
+				/>
+			)}
 		</Space>
 	);
 };
 
 const Sidebar = () => {
-	const location = useLocation();
-	const isRoadMap =
-		location.pathname === "/roadmap" || location.pathname === "/courses";
 	return (
-		<Space direction="vertical" align="center">
-			<Buttons buttons={buttonsList} />
-
-			{isRoadMap && (
-				<>
-					<Divider style={{ margin: "5px 0" }} />
-					<Buttons buttons={additionalButtons} />
-				</>
-			)}
+		<Space
+			direction="vertical"
+			align="center"
+			className="custom-bg"
+			style={{ height: "100%", paddingLeft: "1rem" }}>
+			<Buttons buttons={MENU_BUTTONS_LIST} />
 		</Space>
 	);
 };

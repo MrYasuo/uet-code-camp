@@ -33,7 +33,7 @@ const colJustifyCenter = {
 
 const Course = ({ course }) => {
 	return (
-		<Row gutter={[0, 5]}>
+		<Row gutter={[0, 5]} style={{ padding: "5rem" }}>
 			<Col xs={24} style={colAllCenter}>
 				<Typography.Title level={5} className="no-margin-bottom">
 					{COURSES_LIST[course]["title"]}
@@ -61,7 +61,7 @@ const Course = ({ course }) => {
 					Người hướng dẫn
 				</Typography.Title>
 			</Col>
-			<Col xs={24} style={colAllCenter}>
+			<Col xs={24}>
 				<Typography.Text>
 					<b>Họ tên: </b>
 					{COURSES_LIST[course]["teacher"]["name"]}
@@ -175,6 +175,8 @@ const CoursesMenu = () => {
 				items={COURSES_MENU_LIST}
 				selectedKeys={[course]}
 				mode="horizontal"
+				className="custom-bg"
+				style={{ padding: "0 5rem" }}
 			/>
 			<Course course={course} />
 		</Space>

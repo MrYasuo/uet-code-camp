@@ -23,7 +23,10 @@ const MyRow = ({ people }) => {
 						cover={
 							<img
 								src={person.avatar}
-								style={{ objectFit: "contain", height: "100%" }}
+								style={{
+									objectFit: "contain",
+									height: "100%",
+								}}
 							/>
 						}>
 						<Meta

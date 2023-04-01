@@ -1,4 +1,5 @@
 import { Button, Space, Typography, Divider, List, Row, Col } from "antd";
+import { Link } from "react-router-dom";
 
 const btnStyle = {
 	padding: 0,
@@ -36,16 +37,24 @@ const Footer = () => {
 					</Typography.Title>
 					<Row>
 						<Col xs={24} style={colStyle}>
-							<CustomBtn>Trang chủ</CustomBtn>
+							<Link to="/">
+								<CustomBtn>Trang chủ</CustomBtn>
+							</Link>
 						</Col>
 						<Col xs={24} style={colStyle}>
-							<CustomBtn>Lộ trình</CustomBtn>
+							<Link to="/roadmap">
+								<CustomBtn>Lộ trình</CustomBtn>
+							</Link>
 						</Col>
 						<Col xs={24} style={colStyle}>
-							<CustomBtn>Về chúng tôi</CustomBtn>
+							<Link to="/about">
+								<CustomBtn>Về chúng tôi</CustomBtn>
+							</Link>
 						</Col>
 						<Col xs={24} style={colStyle}>
-							<CustomBtn>Liên hệ</CustomBtn>
+							<Link to="/contact">
+								<CustomBtn>Liên hệ</CustomBtn>
+							</Link>
 						</Col>
 					</Row>
 				</Space>

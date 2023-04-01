@@ -13,25 +13,31 @@ import {
 	CoursesMenu,
 	Contact,
 } from "@/components";
+import { useContext } from "react";
+import { AppContext } from "@/contexts";
 
 const MyContent = () => {
+	const { isTablet } = useContext(AppContext);
 	return (
-		<Layout style={{ padding: "0 10px" }} className="white-bg">
-			<Header className="white-bg">
+		<Layout className="custom-bg">
+			<Header
+				className="white-bg"
+				style={{ borderBottom: "1px solid #6a4f73", padding: 0 }}>
 				<MyHeader />
 			</Header>
-			<Content>
-				<Divider style={{ margin: "10px 0px" }} />
-				<Layout className="white-bg">
-					<Sider id="sider">
-						<Sidebar />
-					</Sider>
-					<Content style={{ margin: "0 10px" }}>
+			<Content style={{ marginTop: "1rem" }}>
+				<Layout className="custom-bg">
+					{isTablet && (
+						<Sider id="sider">
+							<Sidebar />
+						</Sider>
+					)}
+					<Content>
 						<Outlet />
 					</Content>
 				</Layout>
 			</Content>
-			<Footer className="white-bg">
+			<Footer style={{ padding: "5rem" }}>
 				<MyFooter />
 			</Footer>
 		</Layout>
@@ -41,7 +47,12 @@ const MyContent = () => {
 const App = () => {
 	return (
 		<ConfigProvider
-			theme={{ token: { fontFamily: "'Inconsolata', monospace" } }}>
+			theme={{
+				token: {
+					fontFamily: "'Inconsolata', monospace",
+					colorPrimary: "#593767",
+				},
+			}}>
 			<Routes>
 				<Route path="/" element={<MyContent />}>
 					<Route index element={<Home />} />

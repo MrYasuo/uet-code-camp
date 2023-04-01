@@ -1,3 +1,5 @@
+import { MENU_BUTTONS_LIST, REGISTER_BUTTON, INTRODUCES } from "./Icons";
+
 const COURSES_MENU_LIST = [
 	{
 		label: "Java",
@@ -368,31 +370,53 @@ const AWESOME_CAMPERS = [
 const TIMELINE_START = [
 	{
 		title: "Mở đơn đăng kí",
-		description: "28/2 - 10/3",
+		description: "31/3",
 	},
 	{
-		title: "Tổ chức kiểm tra đầu vào",
-		description: "11/3",
+		title: "Vòng đánh giá năng lực",
+		description: "12/4",
 	},
 	{
-		title: "Gặp gỡ các thành viên Camp 2019",
-		description: "14/3",
-	},
-	{
-		title: "Tham gia khóa học ngắn với Git",
-		description: "15-21/3",
+		title: "Vòng tuyển chọn",
+		description: "17/4",
 	},
 ];
 
 const TIMELINE_END = [
 	{
-		title: "Học, tìm tòi công nghệ mới",
-		description: "22/3 - 22/4",
+		title: "Tổ chức camp",
+		description: "21/4",
 		status: "wait",
 	},
 	{
-		title: "Làm dự án",
-		description: "22/4 - 22/5",
+		title: "Campathon (dự kiến)",
+		description: "6/2023",
+	},
+];
+
+const INVESTORS = [
+	{
+		alt: "Tekko",
+		src: "https://uetcodecamp.github.io/images/tekko2.jpg",
+	},
+	{
+		alt: "FooBla",
+		src: "https://uetcodecamp.github.io/images/foobla.png",
+	},
+	{
+		alt: "Sun",
+		src: "https://uetcodecamp.github.io/images/sun-asterisk.jpg",
+	},
+];
+
+const SUPPORTERS = [
+	{
+		alt: "higgsup",
+		src: "https://uetcodecamp.github.io/images/higgsup.png",
+	},
+	{
+		alt: "emdi",
+		src: "https://uetcodecamp.github.io/images/emddi.png",
 	},
 ];
 
@@ -405,4 +429,9 @@ export {
 	GUESTS_OF_HONOR,
 	TIMELINE_START,
 	TIMELINE_END,
+	MENU_BUTTONS_LIST,
+	REGISTER_BUTTON,
+	INTRODUCES,
+	SUPPORTERS,
+	INVESTORS,
 };
