@@ -11,73 +11,78 @@ const btnStyle = {
 	alignItems: "center",
 };
 
+const colStyle = {
+	display: "flex",
+	alignItems: "center",
+	justifyContent: "center",
+};
+
 const Contact = () => {
 	return (
-		<Row>
-			<Col xl={24}>
-				<Typography.Title level={2} className="center-text">
-					Thông tin liên hệ
-				</Typography.Title>
-			</Col>
-			<Col
-				xl={24}
-				style={{
-					justifyContent: "center",
-					display: "flex",
-					alignItems: "center",
-				}}>
+		<Row gutter={[16, 16]}>
+			<Col md={24} style={colStyle}>
 				<Space direction="vertical">
-					<Button
-						style={btnStyle}
-						icon={
-							<FontAwesomeIcon
-								icon={faLocationDot}
-								style={{ marginRight: "10px" }}
-							/>
-						}
-						type="text">
-						<Typography.Text style={{ margin: 0, textAlign: "left" }}>
-							Câu lạc bộ thư viện hội sinh viên,
-							<br />
-							Đại học Công nghệ - ĐHQGHN
-						</Typography.Text>
-					</Button>
+					<Typography.Title level={2} className="center-text">
+						Thông tin liên hệ
+					</Typography.Title>
+					<Space>
+						<Space direction="vertical">
+							<Button
+								style={btnStyle}
+								icon={
+									<FontAwesomeIcon
+										icon={faLocationDot}
+										style={{ marginRight: "10px" }}
+									/>
+								}
+								type="text">
+								<Typography.Text style={{ margin: 0, textAlign: "left" }}>
+									Câu lạc bộ thư viện hội sinh viên,
+									<br />
+									Đại học Công nghệ - ĐHQGHN
+								</Typography.Text>
+							</Button>
+						</Space>
+						<Space direction="vertical">
+							<Button
+								style={btnStyle}
+								icon={
+									<FontAwesomeIcon
+										icon={faEnvelope}
+										style={{ marginRight: "10px" }}
+									/>
+								}
+								type="text">
+								uetcodecamp@gmail.com
+							</Button>
+							<Button
+								style={btnStyle}
+								icon={
+									<FontAwesomeIcon
+										icon={faPhone}
+										style={{ marginRight: "10px" }}
+									/>
+								}
+								type="text">
+								098 1981 063 - Tiến Đông
+							</Button>
+						</Space>
+					</Space>
 				</Space>
+			</Col>
+			<Col md={24} style={colStyle}>
 				<Space direction="vertical">
-					<Button
-						style={btnStyle}
-						icon={
-							<FontAwesomeIcon
-								icon={faEnvelope}
-								style={{ marginRight: "10px" }}
-							/>
-						}
-						type="text">
-						uetcodecamp@gmail.com
-					</Button>
-					<Button
-						style={btnStyle}
-						icon={
-							<FontAwesomeIcon icon={faPhone} style={{ marginRight: "10px" }} />
-						}
-						type="text">
-						098 1981 063 - Tiến Đông
-					</Button>
+					<Typography.Title level={2} className="center-text">
+						Tham gia UET Code Camp
+					</Typography.Title>
+					<Typography.Text className="center-text">
+						Khám phá công nghệ mới, thu lượm kỹ năng về phát triển phần mềm, tại
+						sao không?
+					</Typography.Text>
 				</Space>
 			</Col>
-			<Col xl={24}>
-				<Typography.Title level={2} className="center-text">
-					Tham gia UET Code Camp
-				</Typography.Title>
-			</Col>
-			<Col xl={24} style={{ justifyContent: "center", display: "flex" }}>
-				<Typography.Text className="center-text">
-					Khám phá công nghệ mới, thu lượm kỹ năng về phát triển phần mềm, tại
-					sao không?
-				</Typography.Text>
-			</Col>
-			<Col xl={24} style={{ justifyContent: "center", display: "flex" }}>
-				<Button>ĐĂNG KÝ NGAY</Button>
+			<Col md={24} style={colStyle}>
+				<Button style={{ justifyContent: "center" }}>ĐĂNG KÝ NGAY</Button>
 			</Col>
 		</Row>
 	);
