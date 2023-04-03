@@ -5,6 +5,10 @@ import {
 	faEnvelope,
 	faPhone,
 } from "@fortawesome/free-solid-svg-icons";
+import {
+	faFacebook,
+	faFacebookSquare,
+} from "@fortawesome/free-brands-svg-icons";
 import { AppContext } from "@/contexts";
 import { useContext } from "react";
 
@@ -28,6 +32,26 @@ const colJustifyCenter = {
 	display: "flex",
 	justifyContent: "center",
 };
+
+const CustomBtnWithIcon = ({ title, icon, href = null }) => (
+	<Button
+		style={{ ...btnStyle, padding: "1rem", height: "fit-content" }}
+		href={href}
+		icon={<FontAwesomeIcon icon={icon} style={{ marginRight: "10px" }} />}
+		type="text">
+		<div
+			style={{
+				display: "flex",
+				flexDirection: "column",
+				alignItems: "flex-start",
+				gap: "0.5rem",
+			}}>
+			{title.split("\n").map((text, i) => (
+				<Typography.Text key={i}>{text}</Typography.Text>
+			))}
+		</div>
+	</Button>
+);
 
 const Contact = () => {
 	const { headerHeight, viewPort } = useContext(AppContext);
@@ -53,48 +77,33 @@ const Contact = () => {
 						<Col xs={24} style={colAllCenter}>
 							<Row gutter={[64, 64]}>
 								<Col xs={24} md={12} style={colAllCenter}>
-									<Button
-										style={btnStyle}
-										icon={
-											<FontAwesomeIcon
-												icon={faLocationDot}
-												style={{ marginRight: "10px" }}
-											/>
+									<CustomBtnWithIcon
+										icon={faLocationDot}
+										title={
+											"Câu lạc bộ thư viện hội sinh viên,\nĐại học Công nghệ - ĐHQGHN"
 										}
-										type="text">
-										<Typography.Text style={{ margin: 0, textAlign: "left" }}>
-											Câu lạc bộ thư viện hội sinh viên,
-											<br />
-											Đại học Công nghệ - ĐHQGHN
-										</Typography.Text>
-									</Button>
+									/>
 								</Col>
 								<Col xs={24} md={12} style={colAllCenter}>
 									<Space direction="vertical">
-										<Button
-											style={btnStyle}
-											icon={
-												<FontAwesomeIcon
-													icon={faEnvelope}
-													style={{ marginRight: "10px" }}
-												/>
-											}
-											type="text">
-											<Typography.Text>uetcodecamp@gmail.com</Typography.Text>
-										</Button>
-										<Button
-											style={btnStyle}
-											icon={
-												<FontAwesomeIcon
-													icon={faPhone}
-													style={{ marginRight: "10px" }}
-												/>
-											}
-											type="text">
-											<Typography.Text>
-												098 1981 063 - Tiến Đông
-											</Typography.Text>
-										</Button>
+										<CustomBtnWithIcon
+											icon={faEnvelope}
+											title="uetcodecamp@gmail.com"
+										/>
+										<CustomBtnWithIcon
+											icon={faPhone}
+											title="036 775 0975 - Mr. Bá"
+										/>
+										<CustomBtnWithIcon
+											icon={faFacebook}
+											title="Facebook UET Code Camp"
+											href="https://www.facebook.com/UETCodeCamp"
+										/>
+										<CustomBtnWithIcon
+											icon={faFacebookSquare}
+											title="Facebook Câu lạc bộ thư viện hội sinh viên"
+											href="https://www.facebook.com/TVHSV.UET"
+										/>
 									</Space>
 								</Col>
 							</Row>

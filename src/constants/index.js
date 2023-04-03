@@ -1,18 +1,18 @@
 import { MENU_BUTTONS_LIST, REGISTER_BUTTON, INTRODUCES } from "./Icons";
 
 const COURSES_MENU_LIST = [
-	{
-		label: "Java",
-		key: "java",
-	},
+	// {
+	// 	label: "Java",
+	// 	key: "java",
+	// },
 	{
 		label: "NodeJS",
 		key: "nodejs",
 	},
-	{
-		label: "Ruby",
-		key: "ruby",
-	},
+	// {
+	// 	label: "Ruby",
+	// 	key: "ruby",
+	// },
 ];
 
 const COURSES_LIST = {
@@ -367,6 +367,45 @@ const AWESOME_CAMPERS = [
 	},
 ];
 
+const MENTORS = [
+	{
+		avatar: "./nguyenthaitiep.jpg",
+		name: "Nguyễn Thái Tiệp",
+		role: "Software Engineer - Teko Việt Nam",
+	},
+	{
+		avatar: "./phamcongmanhhung.jpg",
+		name: "Phạm Công Mạnh Hùng",
+		role: "Sinh viên nghiên cứu tại lab Công nghệ Phần mềm",
+	},
+];
+
+const COUNSELORS = [
+	{
+		avatar: "./tranvantu.jpg",
+		name: "Trần Văn Tú",
+		role: "Mentor nodejs 2 mùa 2018, 2019\nSenior Software Engineer",
+	},
+	{
+		avatar: "./tranmanhcuong.jpg",
+		name: "Trần Mạnh Cường",
+		role: "Giảng viên tại UET\nTham gia UCC 2018, Supporter tech UCC 2019",
+	},
+];
+
+const CAMPERS2019 = [
+	{
+		avatar: "./dovansi.png",
+		name: "Đỗ Văn Sĩ",
+		role: "Backend Developer tại Bizzi Vietnam\nTham gia UCC 2018, Supporter tech UCC 2019",
+	},
+	{
+		avatar: "./ngogianguyen.jpg",
+		name: "Ngô Gia Nguyên",
+		role: "Software Engineer tại công ty Teko Việt Nam\nTham gia UCC 2018",
+	},
+];
+
 const TIMELINE_START = [
 	{
 		title: "Mở đơn đăng kí",
@@ -384,13 +423,13 @@ const TIMELINE_START = [
 
 const TIMELINE_END = [
 	{
-		title: "Tổ chức camp",
-		description: "21/4",
+		title: "Giai đoạn training",
+		description: "21/04 - 21/06",
 		status: "wait",
 	},
 	{
-		title: "Campathon (dự kiến)",
-		description: "6/2023",
+		title: "Cuộc thi Campathon",
+		description: "06/2023",
 	},
 ];
 
@@ -434,4 +473,7 @@ export {
 	INTRODUCES,
 	SUPPORTERS,
 	INVESTORS,
+	MENTORS,
+	COUNSELORS,
+	CAMPERS2019,
 };

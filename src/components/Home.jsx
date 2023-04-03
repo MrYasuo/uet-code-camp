@@ -7,6 +7,55 @@ import { useContext } from "react";
 import { AppContext } from "@/contexts";
 import { SUPPORTERS, INVESTORS } from "@/constants";
 
+const SupporterAndInvestor = () => (
+	<Col xs={24}>
+		<Row
+			gutter={[0, 64]}
+			style={{ padding: "5rem", backgroundColor: "#C7B795" }}>
+			<Col xs={24}>
+				<Typography.Title className="center-text">
+					Nhà tài trợ vàng
+				</Typography.Title>
+			</Col>
+			<Col xs={24}>
+				<Row gutter={16}>
+					{INVESTORS.map((investor, i) => (
+						<Col key={i}>
+							<Image
+								src={investor["src"]}
+								alt={investor["alt"]}
+								height={80}
+								preview={false}
+								style={{ mixBlendMode: "color-burn" }}
+							/>
+						</Col>
+					))}
+				</Row>
+			</Col>
+			<Col xs={24}>
+				<Typography.Title className="center-text">
+					Đơn vị đồng hành
+				</Typography.Title>
+			</Col>
+			<Col xs={24}>
+				<Row gutter={16}>
+					{SUPPORTERS.map((supporter, i) => (
+						<Col key={i}>
+							<Image
+								src={supporter["src"]}
+								alt={supporter["alt"]}
+								height={40}
+								preview={false}
+								style={{ mixBlendMode: "color-burn" }}
+							/>
+						</Col>
+					))}
+				</Row>
+			</Col>
+		</Row>
+	</Col>
+);
+
 const Home = () => {
 	const { isDesktop, headerHeight, viewPort } = useContext(AppContext);
 	return (
@@ -135,54 +184,14 @@ const Home = () => {
 					</Col>
 				</Row>
 			</Col>
-			<Col xs={24}>
-				<Row
-					gutter={[0, 64]}
-					style={{ padding: "5rem", backgroundColor: "#C7B795" }}>
-					<Col xs={24}>
-						<Typography.Title className="center-text">
-							Nhà tài trợ vàng
-						</Typography.Title>
-					</Col>
-					<Col xs={24}>
-						<Row gutter={16}>
-							{INVESTORS.map((investor, i) => (
-								<Col key={i}>
-									<Image
-										src={investor["src"]}
-										alt={investor["alt"]}
-										height={80}
-										preview={false}
-										style={{ mixBlendMode: "color-burn" }}
-									/>
-								</Col>
-							))}
-						</Row>
-					</Col>
-					<Col xs={24}>
-						<Typography.Title className="center-text">
-							Đơn vị đồng hành
-						</Typography.Title>
-					</Col>
-					<Col xs={24}>
-						<Row gutter={16}>
-							{SUPPORTERS.map((supporter, i) => (
-								<Col key={i}>
-									<Image
-										src={supporter["src"]}
-										alt={supporter["alt"]}
-										height={40}
-										preview={false}
-										style={{ mixBlendMode: "color-burn" }}
-									/>
-								</Col>
-							))}
-						</Row>
-					</Col>
-				</Row>
-			</Col>
+			{/* <SupporterAndInvestor /> */}
 			<Col xs={24} className="no-padding">
-				<Row gutter={[0, 24]} style={{ padding: "5rem", marginBottom: 64 }}>
+				<Row
+					gutter={[0, 24]}
+					style={{
+						padding: "5rem",
+						backgroundColor: "#C7B795",
+					}}>
 					<Col xs={24}>
 						<Typography.Title className="center-text">
 							Tham gia UET Code Camp

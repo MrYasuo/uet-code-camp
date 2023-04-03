@@ -167,7 +167,7 @@ const Course = ({ course }) => {
 };
 
 const CoursesMenu = () => {
-	const [course, setCourse] = useState("java");
+	const [course, setCourse] = useState("nodejs");
 	return (
 		<Space direction="vertical">
 			<Menu

@@ -1,10 +1,5 @@
 import { Avatar, Typography, Space, List, Card, Image, Row, Col } from "antd";
-import {
-	FIRE_TEAMS,
-	AWESOME_CAMPERS,
-	ENTHUSIASTIC_TEAMS,
-	GUESTS_OF_HONOR,
-} from "@/constants";
+import { CAMPERS2019, MENTORS, COUNSELORS } from "@/constants";
 
 const { Meta } = Card;
 
@@ -65,7 +60,12 @@ const MyList = ({ people }) => {
 							align="center"
 							style={{ justifyContent: "center" }}>
 							<Typography.Title level={4}>{person.name}</Typography.Title>
-							{person.role && <Typography.Text>{person.role}</Typography.Text>}
+							{person.role &&
+								person.role
+									.split("\n")
+									.map((_role, i) => (
+										<Typography.Text key={i}>{_role}</Typography.Text>
+									))}
 						</Space>
 					</Card>
 				</List.Item>
@@ -75,8 +75,8 @@ const MyList = ({ people }) => {
 
 const About = () => {
 	return (
-		<Space direction="vertical">
-			<Typography.Title level={3} className="center-text">
+		<Space direction="vertical" style={{ width: "100%" }}>
+			{/* <Typography.Title level={3} className="center-text">
 				Khách mời danh dự
 			</Typography.Title>
 			<MyList people={GUESTS_OF_HONOR} />
@@ -91,7 +91,19 @@ const About = () => {
 			<Typography.Title level={3} className="center-text">
 				Awesome Camper
 			</Typography.Title>
-			<MyList people={AWESOME_CAMPERS} />
+			<MyList people={AWESOME_CAMPERS} /> */}
+			<Typography.Title level={3} className="center-text">
+				Mentor
+			</Typography.Title>
+			<MyList people={MENTORS} />
+			<Typography.Title level={3} className="center-text">
+				Cố vấn
+			</Typography.Title>
+			<MyList people={COUNSELORS} />
+			<Typography.Title level={3} className="center-text">
+				Camper 2019
+			</Typography.Title>
+			<MyList people={CAMPERS2019} />
 		</Space>
 	);
 };

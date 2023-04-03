@@ -10,9 +10,9 @@ import {
 	faPenToSquare,
 	faRocket,
 	faVrCardboard,
-	faWallet,
 	faGraduationCap,
 	faPeopleGroup,
+	faStar,
 } from "@fortawesome/free-solid-svg-icons";
 
 const MENU_BUTTONS_LIST = {
@@ -117,10 +117,10 @@ const INTRODUCES = [
 		icon: <FontAwesomeIcon size="2x" color="#593767" icon={faVrCardboard} />,
 	},
 	{
-		title: "Cơ hội nghề nghiệp",
+		title: "Điểm nhấn cho CV",
 		description:
-			"Kết thúc Code Camp, thành viên tham gia có thể sử dụng những kiến thức của mình để ứng tuyển vào các vị trí thực tập trong các công ty.",
-		icon: <FontAwesomeIcon size="2x" color="#593767" icon={faWallet} />,
+			"Khi tham gia Code Camp, ngoài học được những kiến thức, thí sinh còn nhận được Certificate từ Ban tổ chức. Đây cũng chính là một điểm nhấn trong CV giúp các bạn ghi điểm trong mắt nhà tuyển dụng.",
+		icon: <FontAwesomeIcon size="2x" color="#593767" icon={faStar} />,
 	},
 	{
 		title: "Tự tìm hiểu",

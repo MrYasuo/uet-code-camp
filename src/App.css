@@ -61,6 +61,14 @@ span {
 	margin-inline-end: 0 !important;
 }
 
+.ant-steps-item-description,
+.ant-steps-item-content,
+.ant-steps-item-container,
+.ant-steps-item,
+.ant-steps {
+	width: fit-content !important;
+}
+
 /* Atomic */
 
 .center-text {
