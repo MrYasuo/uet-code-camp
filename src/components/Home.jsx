@@ -7,16 +7,10 @@ import { useContext } from "react";
 import { AppContext } from "@/contexts";
 import { SUPPORTERS, INVESTORS } from "@/constants";
 
-const colStyle = {
-	display: "flex",
-	alignItems: "center",
-	justifyContent: "center",
-};
-
 const Home = () => {
 	const { isDesktop, headerHeight, viewPort } = useContext(AppContext);
 	return (
-		<Row gutter={[16, 16]} style={{ height: "100%" }}>
+		<Row gutter={[16, 64]} style={{ height: "100%" }}>
 			<Col
 				style={{
 					height: viewPort.height - headerHeight,
@@ -39,11 +33,8 @@ const Home = () => {
 				</Typography.Text>
 				<Divider />
 				<Space>
-					<Link to="#">
-						<Button
-							type="primary"
-							size="large"
-							href="https://docs.google.com/forms/d/e/1FAIpQLSdSCbquJUboHevq-N-WeokievODPbGIvdKh2Q078GUihswn5w/viewform">
+					<Link to="https://docs.google.com/forms/d/e/1FAIpQLSdSCbquJUboHevq-N-WeokievODPbGIvdKh2Q078GUihswn5w/viewform">
+						<Button type="primary" size="large">
 							Đăng ký ngay
 						</Button>
 					</Link>
@@ -60,7 +51,9 @@ const Home = () => {
 						display: "grid",
 						gridTemplateColumns: isDesktop ? "auto auto auto" : "auto",
 						gap: "2rem 5rem",
-						padding: "5rem",
+						padding: "5rem 10rem",
+						backgroundColor: "#C7B795",
+						fontSize: 24,
 					}}>
 					{INTRODUCES.map((item, index) => (
 						<div key={index} style={{ display: "flex", alignItems: "center" }}>
@@ -69,13 +62,20 @@ const Home = () => {
 									width: 32,
 									display: "flex",
 									justifyContent: "center",
-									marginRight: 20,
+									marginRight: "2rem",
 								}}>
 								{item["icon"]}
 							</div>
-							<div style={{ display: "flex", flexDirection: "column" }}>
-								<Typography.Title level={4}>{item["title"]}</Typography.Title>
-								<Typography.Paragraph style={{ textAlign: "justify" }}>
+							<div
+								style={{
+									display: "flex",
+									flexDirection: "column",
+								}}>
+								<Typography.Title level={4} style={{ fontSize: "1rem" }}>
+									{item["title"]}
+								</Typography.Title>
+								<Typography.Paragraph
+									style={{ textAlign: "justify", fontSize: "1rem" }}>
 									{item["description"]}
 								</Typography.Paragraph>
 							</div>
@@ -84,8 +84,8 @@ const Home = () => {
 				</div>
 			</Col>
 			<Col xs={24}>
-				<Row>
-					<Col xs={24} style={{ padding: "5rem" }}>
+				<Row style={{ padding: "5rem" }}>
+					<Col xs={24}>
 						<Typography.Title className="center-text">
 							UET Code Camp là gì?
 						</Typography.Title>
@@ -135,8 +135,10 @@ const Home = () => {
 					</Col>
 				</Row>
 			</Col>
-			<Col xs={24} style={{ padding: "2rem" }}>
-				<Row gutter={[0, 64]}>
+			<Col xs={24}>
+				<Row
+					gutter={[0, 64]}
+					style={{ padding: "5rem", backgroundColor: "#C7B795" }}>
 					<Col xs={24}>
 						<Typography.Title className="center-text">
 							Nhà tài trợ vàng
@@ -180,9 +182,7 @@ const Home = () => {
 				</Row>
 			</Col>
 			<Col xs={24} className="no-padding">
-				<Row
-					gutter={[0, 24]}
-					style={{ padding: "5rem", backgroundColor: "#c7b795" }}>
+				<Row gutter={[0, 24]} style={{ padding: "5rem", marginBottom: 64 }}>
 					<Col xs={24}>
 						<Typography.Title className="center-text">
 							Tham gia UET Code Camp
@@ -198,10 +198,11 @@ const Home = () => {
 					</Col>
 					<Col xs={24}>
 						<Link
-							to="#"
-							style={{ display: "flex", justifyContent: "center" }}
-							href="https://docs.google.com/forms/d/e/1FAIpQLSdSCbquJUboHevq-N-WeokievODPbGIvdKh2Q078GUihswn5w/viewform">
-							<Button type="primary">ĐĂNG KÝ NGAY</Button>
+							to="https://docs.google.com/forms/d/e/1FAIpQLSdSCbquJUboHevq-N-WeokievODPbGIvdKh2Q078GUihswn5w/viewform"
+							style={{ display: "flex", justifyContent: "center" }}>
+							<Button type="primary" size="large">
+								ĐĂNG KÝ NGAY
+							</Button>
 						</Link>
 					</Col>
 				</Row>
