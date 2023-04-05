@@ -1,5 +1,35 @@
-import { Row, Col, Space, Typography, Steps, Divider } from "antd";
+import { Row, Col, Timeline, Space, Divider, Collapse, Typography } from "antd";
 import { TIMELINE_START, TIMELINE_END } from "@/constants";
+import { Link } from "react-router-dom";
+
+const { Panel } = Collapse;
+
+const items = [...TIMELINE_START, ...TIMELINE_END].map((item, i) => ({
+	children: (
+		<Collapse key={i} ghost>
+			<Panel
+				header={
+					<Row>
+						<Col xs={24}>
+							<Typography.Title
+								level={5}
+								underline={true}
+								className="no-margin-bottom">
+								{item["title"]}
+							</Typography.Title>
+						</Col>
+						<Col xs={24}>
+							<Typography.Paragraph>{item["time"]}</Typography.Paragraph>
+						</Col>
+					</Row>
+				}
+				style={{ width: "100%" }}
+				showArrow={false}>
+				<Typography.Text>{item["description"]}</Typography.Text>
+			</Panel>
+		</Collapse>
+	),
+}));
 
 const RoadMap = () => {
 	return (
@@ -16,7 +46,11 @@ const RoadMap = () => {
 						thay đổi để phù hợp với chương trình.
 						<br />
 						Mọi thông tin thay đổi sẽ được cập nhật, thông báo tại đây và trên
-						fanpage của UET Code Camp 2019.
+						fanpage của{" "}
+						<Link to="https://www.facebook.com/UETCodeCamp">
+							UET Code Camp 2019
+						</Link>
+						.
 					</Typography.Text>
 				</div>
 			</Col>
@@ -31,12 +65,13 @@ const RoadMap = () => {
 					alignItems: "center",
 					justifyContent: "center",
 				}}>
-				<Steps
+				<Timeline mode="alternate" items={items} style={{ width: "100%" }} />
+				{/* <Steps
 					direction="vertical"
 					current={0}
 					items={[...TIMELINE_START, ...TIMELINE_END]}
 					style={{ justifyContent: "center" }}
-				/>
+				/> */}
 			</Col>
 			{/* <Divider /> */}
 			{/* <Typography.Title level={3}>Vòng chinh chiến</Typography.Title> */}

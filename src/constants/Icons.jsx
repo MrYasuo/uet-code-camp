@@ -16,16 +16,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const MENU_BUTTONS_LIST = {
-	Blog: {
-		href: "#",
-		icon: (
-			<FontAwesomeIcon
-				className="padding-right-10"
-				color="#593767"
-				icon={faBlog}
-			/>
-		),
-	},
 	"Trang chủ": {
 		href: "/",
 		icon: (
@@ -75,6 +65,16 @@ const MENU_BUTTONS_LIST = {
 				className="padding-right-10"
 				color="#593767"
 				icon={faAddressCard}
+			/>
+		),
+	},
+	Blog: {
+		href: "/blog",
+		icon: (
+			<FontAwesomeIcon
+				className="padding-right-10"
+				color="#593767"
+				icon={faBlog}
 			/>
 		),
 	},

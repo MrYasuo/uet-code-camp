@@ -1,4 +1,5 @@
 import { MENU_BUTTONS_LIST, REGISTER_BUTTON, INTRODUCES } from "./Icons";
+import { BLOGS_LIST } from "./blogs";
 
 const COURSES_MENU_LIST = [
 	// {
@@ -86,14 +87,25 @@ const COURSES_LIST = {
 		level: "Nhập môn (dễ)",
 		description:
 			"Học cách xây dựng một ứng dụng Restful API với đầy đủ tính năng như một dự án thực tế bằng cách sử dụng Node, Express và MongoDB.",
-		teacher: {
-			name: "anh Trần Văn Tú",
-			business: "Web Developer công ty Foobla, cựu sinh viên UET (K58)",
-			experience:
-				"Hơn 3 năm kinh nghiệm làm việc với vai trò web developer tại Foobla và hơn 2 năm kinh nghiệm với Node.js.",
-			description:
-				"Chào thế giới! Mình là Tú, mình ở đây để hỗ trợ các lập trình viên đầy tham vọng tiếp cận tới một cấp bậc mới trong con đường sự nghiệp của mình. Mình làm việc ở vị trí Full Stack Developer đã và đang làm việc với PHP, MySQL, Node.js, MongoDB, ReactJS, Redis, Elasticsearch. Mình cũng là một trong hai mentor chính của khóa ReactJS năm 2018 của UET CodeCamp.",
-		},
+		teachers: [
+			{
+				name: "Anh Nguyễn Thái Tiệp",
+				business: "Software Engineer - Teko Việt Nam",
+				experience: "3+ năm trong lĩnh vực Công nghệ phần mềm",
+				description:
+					"Xin chào, Mình là sinh viên K63 khoa CNTT hiện đang là kỹ sư phần mềm tại Teko Việt Nam và cũng là một trong những thành viên của TVHSV. Mình yêu thích lập trình và muốn tạo ra những sản phẩm mang đến nhiều giá trị cho mọi người. Bằng sự hiểu biết và kinh nghiệm ít ỏi của mình, hy vọng sẽ giúp các bạn có nhiều hiểu biết hơn về phần mềm và cách xây dựng ra chúng.",
+			},
+			{
+				name: "Anh Phạm Công Mạnh Hùng",
+				prizes: [
+					"Giải ba Hội nghị Sinh viên NCKH cấp Khoa năm 2023",
+					"Sinh viên nghiên cứu tại lab Công nghệ Phần mềm",
+					"Thực tập sinh NodeJS tại TokyoLife",
+				],
+				description:
+					"Mình là sv K65 CACLC, chuyên ngành Khoa học máy tính. Khi bắt đầu lên đại học, mình cảm thấy khá thích JS nên đã quyết định thử và học, và tính tới giờ mình đã sử dụng và làm việc với Nodejs được gần 3 năm. Trong thời gian rảnh, mình thường hay mày mò sử dụng những công nghệ mới liên quan tới JS, hoặc tìm hiểu sâu và kỹ hơn về Nodejs. Cách để hiểu rõ nhất công nghệ chính là truyền đạt lại ý hiểu của mình cho người khác, nên rất vui được hợp tác và giảng dạy, trao đổi thêm với các bạn về ngôn ngữ JS cũng như Nodejs.",
+			},
+		],
 		lectures: [
 			{
 				title: "Làm quen với Javascript",
@@ -409,27 +421,36 @@ const CAMPERS2019 = [
 const TIMELINE_START = [
 	{
 		title: "Mở đơn đăng kí",
-		description: "31/3",
+		time: "31/3",
+		description:
+			"Thời gian mở đơn đăng ký tham gia diễn ra từ ngày 31/03 đến 22:00 ngày 07/04. Đăng ký ngay!",
 	},
 	{
 		title: "Vòng đánh giá năng lực",
-		description: "12/4",
+		time: "12/4",
+		description:
+			"Các thí sinh tham gia vòng đơn sẽ làm một bài kiểm tra đầu vào bằng bài thi lập trình trên giấy",
 	},
 	{
 		title: "Vòng tuyển chọn",
-		description: "17/4",
+		time: "17/4",
+		description:
+			"Vòng phỏng vấn dành cho các thí sinh vượt qua bài kiểm tra đầu vào.",
 	},
 ];
 
 const TIMELINE_END = [
 	{
 		title: "Giai đoạn training",
-		description: "21/04 - 21/06",
-		status: "wait",
+		time: "21/04 - 21/06",
+		description:
+			"Quá trình này diễn ra trong vòng 2 tháng, để các thí sinh được học hỏi, bổ sung thêm kiến thức dưới sự hướng dẫn, giảng dạy của các mentor tài năng, giàu kinh nghiệm.",
 	},
 	{
 		title: "Cuộc thi Campathon",
-		description: "06/2023",
+		time: "06/2023",
+		description:
+			"Thí sinh được chia thành các đội. Các đội thi sẽ phải phát triển một sản phẩm trong 2 ngày dựa trên đề tài được ban tổ chức đưa ra và thuyết trình về sản phẩm đó cho ban tổ chức chấm điểm.",
 	},
 ];
 
@@ -476,4 +497,5 @@ export {
 	MENTORS,
 	COUNSELORS,
 	CAMPERS2019,
+	BLOGS_LIST,
 };

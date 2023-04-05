@@ -13,6 +13,7 @@ import {
 	CoursesMenu,
 	Contact,
 } from "@/components";
+import { BlogHome, Blog } from "@/components/blog";
 import { useContext } from "react";
 import { AppContext } from "@/contexts";
 
@@ -61,6 +62,10 @@ const App = () => {
 					<Route path="courses" element={<CoursesMenu />} />
 					<Route path="about" element={<About />} />
 					<Route path="contact" element={<Contact />} />
+					<Route path="blog">
+						<Route index element={<BlogHome />} />
+						<Route path=":id" element={<Blog />} />
+					</Route>
 				</Route>
 			</Routes>
 		</ConfigProvider>

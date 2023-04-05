@@ -17,8 +17,10 @@
 		"antd": "^5.3.3",
 		"react": "experimental",
 		"react-dom": "experimental",
+		"react-markdown": "^8.0.6",
 		"react-router-dom": "^6.10.0",
-		"react-type-animation": "^3.0.1"
+		"react-type-animation": "^3.0.1",
+		"rehype-raw": "^6.1.1"
 	},
 	"overrides": {
 		"react": "$react",

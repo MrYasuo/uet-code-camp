@@ -43,16 +43,57 @@ const CustomButtonLink = ({ button, buttonName }) => (
 	</Link>
 );
 
-const CustomMenuHorizontalChildren = ({ buttonsList }) => (
-	<Menu
-		mode="horizontal"
-		className="no-border-bottom"
-		items={[
-			{
-				label: "Menu",
-				key: "menu",
-				icon: <FontAwesomeIcon icon={faSquareCaretDown} />,
-				children: Object.keys(buttonsList).map((buttonName, i) => ({
+const CustomMenuHorizontalChildren = ({ buttonsList }) => {
+	return (
+		<Menu
+			mode="horizontal"
+			className="no-border-bottom"
+			items={[
+				{
+					label: "Menu",
+					key: "menu",
+					icon: <FontAwesomeIcon icon={faSquareCaretDown} />,
+					children: Object.keys(buttonsList).map((buttonName) => ({
+						key: buttonName,
+						label: (
+							<CustomButtonLink
+								button={buttonsList[buttonName]}
+								buttonName={buttonName}
+							/>
+						),
+						children:
+							buttonsList[buttonName]["children"] &&
+							Object.keys(buttonsList[buttonName]["children"]).map(
+								(additionalButtonName) => ({
+									key: additionalButtonName,
+									label: (
+										<CustomButtonLink
+											button={
+												buttonsList[buttonName]["children"][
+													additionalButtonName
+												]
+											}
+											buttonName={additionalButtonName}
+										/>
+									),
+								})
+							),
+					})),
+				},
+			]}
+		/>
+	);
+};
+
+const CustomMenuVerticalChildren = ({ buttonsList }) => {
+	return (
+		<Menu
+			disabledOverflow={true}
+			style={{ backgroundColor: "transparent" }}
+			mode="horizontal"
+			className="no-border-bottom"
+			items={Object.keys(buttonsList).map((buttonName, i) => {
+				return {
 					key: i,
 					label: (
 						<CustomButtonLink
@@ -74,41 +115,11 @@ const CustomMenuHorizontalChildren = ({ buttonsList }) => (
 								),
 							})
 						),
-				})),
-			},
-		]}
-	/>
-);
-
-const CustomMenuVerticalChildren = ({ buttonsList }) => (
-	<Menu
-		mode="horizontal"
-		className="no-border-bottom"
-		items={Object.keys(buttonsList).map((buttonName, i) => ({
-			key: i,
-			label: (
-				<CustomButtonLink
-					button={buttonsList[buttonName]}
-					buttonName={buttonName}
-				/>
-			),
-			children:
-				buttonsList[buttonName]["children"] &&
-				Object.keys(buttonsList[buttonName]["children"]).map(
-					(additionalButtonName) => ({
-						label: (
-							<CustomButtonLink
-								button={
-									buttonsList[buttonName]["children"][additionalButtonName]
-								}
-								buttonName={additionalButtonName}
-							/>
-						),
-					})
-				),
-		}))}
-	/>
-);
+				};
+			})}
+		/>
+	);
+};
 
 const Header = () => {
 	const { isMobile, isTablet, isDesktop, setHeaderHeight, viewPort } =
@@ -120,7 +131,7 @@ const Header = () => {
 	return (
 		<Row ref={ref} style={{ height: "100%" }}>
 			{isMobile && (
-				<Col style={colJustifyStartAlignCenter}>
+				<Col style={{ ...colJustifyStartAlignCenter, height: "100%" }}>
 					{isMobile ? (
 						<CustomMenuHorizontalChildren
 							buttonsList={{
@@ -129,23 +140,29 @@ const Header = () => {
 							}}
 						/>
 					) : (
-						<CustomMenuHorizontalChildren buttonsList={MENU_BUTTONS_LIST} />
+						<CustomMenuVerticalChildren buttonsList={MENU_BUTTONS_LIST} />
 					)}
 				</Col>
 			)}
 			<Col
-				style={
-					isMobile
+				style={{
+					...(isMobile
 						? logoColMobileStyle
 						: isTablet
 						? logoColTabletStyle
-						: logoColDesktopStyle
-				}>
+						: logoColDesktopStyle),
+					height: "100%",
+				}}>
 				<Link to="/" style={colAllCenter}>
 					<img
 						src={uetCodeCampLogo}
 						height={40}
-						style={{ marginLeft: "50px" }}
+						style={{
+							marginLeft: "50px",
+							marginTop: "auto",
+							marginBottom: "auto",
+							width: "fit-content",
+						}}
 					/>
 				</Link>
 			</Col>
@@ -159,12 +176,16 @@ const Header = () => {
 				</Col>
 			)}
 			{isDesktop && (
-				<Col style={{ ...colJustifyEndAlignCenter, flex: 1 }}>
+				<Col
+					style={{
+						...colJustifyEndAlignCenter,
+						flex: 1,
+					}}>
 					<CustomMenuVerticalChildren buttonsList={MENU_BUTTONS_LIST} />
 				</Col>
 			)}
 			{!isMobile && (
-				<Col style={colJustifyEndAlignCenter}>
+				<Col style={{ ...colJustifyEndAlignCenter, height: "100%" }}>
 					<Button
 						type="primary"
 						size="large"

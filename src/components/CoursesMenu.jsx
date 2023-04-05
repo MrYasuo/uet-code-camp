@@ -61,32 +61,68 @@ const Course = ({ course }) => {
 					Người hướng dẫn
 				</Typography.Title>
 			</Col>
-			<Col xs={24}>
-				<Typography.Text>
-					<b>Họ tên: </b>
-					{COURSES_LIST[course]["teacher"]["name"]}
-				</Typography.Text>
-			</Col>
-			{COURSES_LIST[course]["teacher"]["experience"] && (
-				<Col xs={24}>
-					<Typography.Text>
-						<b>Kinh nghiệm: </b>
-						{COURSES_LIST[course]["teacher"]["experience"]}
-					</Typography.Text>
-				</Col>
-			)}
-			<Col xs={24}>
-				<Typography.Text>
-					<b>Công tác: </b>
-					{COURSES_LIST[course]["teacher"]["business"]}
-				</Typography.Text>
-			</Col>
-			<Col xs={24} style={colAllCenter}>
-				<Typography.Paragraph>
-					<b>Giới thiệu: </b>
-					{COURSES_LIST[course]["teacher"]["description"]}
-				</Typography.Paragraph>
-			</Col>
+			{COURSES_LIST[course]["teachers"].map((teacher) => (
+				<Row>
+					<Col xs={24}>
+						<Typography.Text>
+							<b>Họ tên: </b>
+							{teacher["name"]}
+						</Typography.Text>
+					</Col>
+					{teacher["experience"] && (
+						<Col xs={24}>
+							<Typography.Text>
+								<b>Kinh nghiệm: </b>
+								{teacher["experience"]}
+							</Typography.Text>
+						</Col>
+					)}
+					{teacher["business"] && (
+						<Col xs={24}>
+							<Typography.Text>
+								<b>Công tác: </b>
+								{teacher["business"]}
+							</Typography.Text>
+						</Col>
+					)}
+					{teacher["prizes"] && (
+						<Col xs={24}>
+							<Typography.Text>
+								<b>Thành tích nổi bật: </b>
+							</Typography.Text>
+							<List
+								dataSource={teacher["prizes"]}
+								renderItem={(prize) => (
+									<List.Item style={{ borderBlockEnd: "none" }}>
+										<Button
+											type="link"
+											style={{
+												color: "black",
+												cursor: "default",
+												display: "flex",
+												alignItems: "center",
+											}}
+											icon={
+												<FontAwesomeIcon
+													icon={faCircle}
+													style={{ margin: "0px 5px", fontSize: "0.25rem" }}
+												/>
+											}>
+											{prize}
+										</Button>
+									</List.Item>
+								)}
+							/>
+						</Col>
+					)}
+					<Col xs={24} style={colAllCenter}>
+						<Typography.Paragraph>
+							<b>Giới thiệu: </b>
+							{teacher["description"]}
+						</Typography.Paragraph>
+					</Col>
+				</Row>
+			))}
 			<Col xs={24} style={colAllCenter}>
 				<Typography.Title level={5} className="no-margin-bottom">
 					Chương trình học
@@ -119,7 +155,7 @@ const Course = ({ course }) => {
 														icon={faCircle}
 														style={{
 															margin: "0px 5px",
-															fontSize: "0.5em",
+															fontSize: "0.25rem",
 														}}
 													/>
 												}>
@@ -153,7 +189,7 @@ const Course = ({ course }) => {
 								icon={
 									<FontAwesomeIcon
 										icon={faCircle}
-										style={{ margin: "0px 5px", fontSize: "0.5em" }}
+										style={{ margin: "0px 5px", fontSize: "0.25rem" }}
 									/>
 								}>
 								{goal}

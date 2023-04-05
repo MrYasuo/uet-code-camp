@@ -6,5 +6,16 @@ import About from "./About";
 import CoursesMenu from "./CoursesMenu";
 import Contact from "./Contact";
 import Footer from "./Footer";
+import Blog from "./blog/Blog";
 
-export { Header, Footer, CoursesMenu, Sidebar, Home, RoadMap, About, Contact };
+export {
+	Blog,
+	Header,
+	Footer,
+	CoursesMenu,
+	Sidebar,
+	Home,
+	RoadMap,
+	About,
+	Contact,
+};
