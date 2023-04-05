@@ -14,10 +14,11 @@ import { TypeAnimation } from "react-type-animation";
 import { Link } from "react-router-dom";
 
 import { INTRODUCES, TIMELINE_END, TIMELINE_START } from "@/constants";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AppContext } from "@/contexts";
 import { SUPPORTERS, INVESTORS } from "@/constants";
-import Fade from "react-reveal/Fade";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const SupporterAndInvestor = () => (
 	<Col xs={24}>
@@ -70,6 +71,9 @@ const SupporterAndInvestor = () => (
 
 const Home = () => {
 	const { isDesktop, headerHeight, viewPort } = useContext(AppContext);
+	useEffect(() => {
+		Aos.init({ duration: 1000 });
+	}, []);
 	return (
 		<Row gutter={[16, 64]} style={{ height: "100%" }}>
 			<Col
@@ -79,7 +83,8 @@ const Home = () => {
 					display: "flex",
 					flexDirection: "column",
 					justifyContent: "center",
-					padding: "0 2rem",
+					paddingRight: "2rem",
+					paddingLeft: "2rem",
 				}}>
 				<Typography.Title style={{ color: "#593767" }}>
 					<TypeAnimation
@@ -110,86 +115,80 @@ const Home = () => {
 			<Col xs={24} style={{ backgroundColor: "#C7B795" }}>
 				<Row style={{ padding: "5rem" }}>
 					<Col xs={24}>
-						<Fade right>
-							<Row>
-								<Col xs={24}>
-									<Typography.Title className="center-text">
-										UCC-Kết nối đam mê, cùng phê với code
-									</Typography.Title>
-								</Col>
-								<Col xs={24}>
-									<Row gutter={[64, 24]} style={{ padding: "3rem" }}>
-										<Col xs={24} lg={12}>
-											<Image src="/LOGOU.jpg" preview={false} />
-										</Col>
-										<Col
-											xs={24}
-											lg={12}
-											style={{ display: "flex", alignItems: "center" }}>
-											<Row>
-												<Typography.Paragraph className="text-justify">
-													Uet Code Camp là một sân chơi gắn kết cộng đồng các
-													sinh viên Công nghệ có niềm đam mê, yêu thích lập
-													trình. Với slogan “Kết nối đam mê, cùng phê với Code”
-													Uet Code Camp luôn mong muốn nuôi dưỡng niềm đam mê
-													lập trình trong các bạn sinh viên, luôn giúp đỡ nhau.
-													cùng nhau tiến bộ.
-												</Typography.Paragraph>
-												<Link to="/blog/1">
-													<Button type="primary" size="large">
-														Xem thêm
-													</Button>
-												</Link>
-											</Row>
-										</Col>
-									</Row>
-								</Col>
-							</Row>
-						</Fade>
-						<Fade left>
-							<Row>
-								<Col xs={24}>
-									<Typography.Title className="center-text">
-										Đơn vị tổ chức
-									</Typography.Title>
-								</Col>
-								<Col xs={24}>
-									<Row gutter={[64, 24]} style={{ padding: "3rem" }}>
-										<Col
-											xs={24}
-											lg={12}
-											style={{ display: "flex", alignItems: "center" }}>
-											<Row>
-												<Typography.Paragraph className="text-justify">
-													CLB TVHSV - Vinh dự khi được là đơn vị tổ chức sự kiện
-													Uet Code Camp, tập thể Thư viện luôn cố gắng, nỗ lực
-													hết mình để đưa sân chơi bổ ích cho các bạn sinh viên
-													Công nghệ ngày một chất lượng, chuyên nghiệp hơn
-													nữa.Trải qua 16 năm hoạt động, Thư viện Hội Sinh viên
-													luôn hoàn thành tốt sứ mệnh và nhiệm vụ của mình, ngày
-													càng phát triển để tự hào là một trong những câu lạc
-													bộ hàng đầu UET.
-												</Typography.Paragraph>
-												<Link to="/blog/2">
-													<Button type="primary" size="large">
-														Xem thêm
-													</Button>
-												</Link>
-											</Row>
-										</Col>
-										<Col xs={24} lg={12}>
-											<Image src="/clb.png" preview={false} />
-										</Col>
-									</Row>
-								</Col>
-							</Row>
-						</Fade>
+						<Row data-aos="fade-left">
+							<Col xs={24}>
+								<Typography.Title className="center-text">
+									UCC-Kết nối đam mê, cùng phê với code
+								</Typography.Title>
+							</Col>
+							<Col xs={24}>
+								<Row gutter={[64, 24]} style={{ padding: "3rem" }}>
+									<Col xs={24} lg={12}>
+										<Image src="/LOGOU.jpg" preview={false} />
+									</Col>
+									<Col
+										xs={24}
+										lg={12}
+										style={{ display: "flex", alignItems: "center" }}>
+										<Row>
+											<Typography.Paragraph className="text-justify">
+												Uet Code Camp là một sân chơi gắn kết cộng đồng các sinh
+												viên Công nghệ có niềm đam mê, yêu thích lập trình. Với
+												slogan “Kết nối đam mê, cùng phê với Code” Uet Code Camp
+												luôn mong muốn nuôi dưỡng niềm đam mê lập trình trong
+												các bạn sinh viên, luôn giúp đỡ nhau. cùng nhau tiến bộ.
+											</Typography.Paragraph>
+											<Link to="/blog/1">
+												<Button type="primary" size="large">
+													Xem thêm
+												</Button>
+											</Link>
+										</Row>
+									</Col>
+								</Row>
+							</Col>
+						</Row>
+						<Row data-aos="fade-right">
+							<Col xs={24}>
+								<Typography.Title className="center-text">
+									Đơn vị tổ chức
+								</Typography.Title>
+							</Col>
+							<Col xs={24}>
+								<Row gutter={[64, 24]} style={{ padding: "3rem" }}>
+									<Col
+										xs={24}
+										lg={12}
+										style={{ display: "flex", alignItems: "center" }}>
+										<Row>
+											<Typography.Paragraph className="text-justify">
+												CLB TVHSV - Vinh dự khi được là đơn vị tổ chức sự kiện
+												Uet Code Camp, tập thể Thư viện luôn cố gắng, nỗ lực hết
+												mình để đưa sân chơi bổ ích cho các bạn sinh viên Công
+												nghệ ngày một chất lượng, chuyên nghiệp hơn nữa.Trải qua
+												16 năm hoạt động, Thư viện Hội Sinh viên luôn hoàn thành
+												tốt sứ mệnh và nhiệm vụ của mình, ngày càng phát triển
+												để tự hào là một trong những câu lạc bộ hàng đầu UET.
+											</Typography.Paragraph>
+											<Link to="/blog/2">
+												<Button type="primary" size="large">
+													Xem thêm
+												</Button>
+											</Link>
+										</Row>
+									</Col>
+									<Col xs={24} lg={12}>
+										<Image src="/clb.png" preview={false} />
+									</Col>
+								</Row>
+							</Col>
+						</Row>
 					</Col>
 				</Row>
 			</Col>
 			<Col xs={24} className="no-padding">
 				<Row>
-					<Col xs={24}>
+					<Col xs={24} data-aos="fade-up">
 						<Typography.Title className="center-text">
 							6 lý do không nên bỏ lỡ UCC
 						</Typography.Title>
@@ -200,12 +199,15 @@ const Home = () => {
 								display: "grid",
 								gridTemplateColumns: isDesktop ? "auto auto auto" : "auto",
 								gap: "2rem 5rem",
-								padding: "0 7rem 5rem 7rem",
+								paddingRight: "7rem",
+								paddingLeft: "7rem",
+								paddingBottom: "5rem",
 								fontSize: 24,
 							}}>
 							{INTRODUCES.map((item, index) => (
 								<div
 									key={index}
+									data-aos="fade-up"
 									style={{ display: "flex", alignItems: "center" }}>
 									<div
 										style={{
@@ -237,8 +239,14 @@ const Home = () => {
 			</Col>
 			<Col
 				xs={24}
-				style={{ backgroundColor: "#C7B795", padding: "5rem 2rem 2rem 2rem" }}>
-				<Row>
+				style={{
+					backgroundColor: "#C7B795",
+					paddingTop: "5rem",
+					paddingLeft: "2rem",
+					paddingRight: "2rem",
+					paddingBottom: "2rem",
+				}}>
+				<Row data-aos="fade-up">
 					<Col xs={24}>
 						<Typography.Title className="center-text">
 							Timeline
@@ -251,7 +259,10 @@ const Home = () => {
 							}}>
 							<Steps
 								style={{
-									padding: "2rem 5rem 5rem 5rem",
+									paddingTop: "2rem",
+									paddingBottom: "5rem",
+									paddingLeft: "5rem",
+									paddingRight: "5rem",
 									backgroundColor: "#C7B795",
 								}}
 								items={[...TIMELINE_START, ...TIMELINE_END].map((timeline) => ({
