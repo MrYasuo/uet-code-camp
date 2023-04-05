@@ -18,7 +18,7 @@ import { useContext } from "react";
 import { AppContext } from "@/contexts";
 
 const MyContent = () => {
-	const { isTablet } = useContext(AppContext);
+	const { isDesktop } = useContext(AppContext);
 	return (
 		<Layout className="custom-bg">
 			<Header
@@ -38,7 +38,7 @@ const MyContent = () => {
 					</Content>
 				</Layout>
 			</Content>
-			<Footer style={{ padding: "5rem" }}>
+			<Footer style={{ padding: isDesktop ? "5rem" : "2rem" }}>
 				<MyFooter />
 			</Footer>
 		</Layout>

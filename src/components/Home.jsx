@@ -70,12 +70,13 @@ const SupporterAndInvestor = () => (
 );
 
 const Home = () => {
-	const { isDesktop, headerHeight, viewPort } = useContext(AppContext);
+	const { isDesktop, isMobile, headerHeight, viewPort } =
+		useContext(AppContext);
 	useEffect(() => {
 		Aos.init({ duration: 1000 });
 	}, []);
 	return (
-		<Row gutter={[16, 64]} style={{ height: "100%" }}>
+		<Row gutter={[16, isDesktop ? 64 : 24]} style={{ height: "100%" }}>
 			<Col
 				style={{
 					height: viewPort.height - headerHeight,
@@ -113,16 +114,20 @@ const Home = () => {
 				</Space>
 			</Col>
 			<Col xs={24} style={{ backgroundColor: "#C7B795" }}>
-				<Row style={{ padding: "5rem" }}>
+				<Row style={{ padding: isDesktop ? "5rem" : "2rem" }}>
 					<Col xs={24}>
-						<Row data-aos="fade-left">
+						<Row data-aos="fade-left" style={{ marginBottom: "1rem" }}>
 							<Col xs={24}>
-								<Typography.Title className="center-text">
-									UCC-Kết nối đam mê, cùng phê với code
+								<Typography.Title
+									className="center-text"
+									level={isDesktop ? 1 : 2}>
+									UCC - Kết nối đam mê, cùng phê với code
 								</Typography.Title>
 							</Col>
 							<Col xs={24}>
-								<Row gutter={[64, 24]} style={{ padding: "3rem" }}>
+								<Row
+									gutter={[64, 24]}
+									style={{ padding: isDesktop ? "3rem" : 0 }}>
 									<Col xs={24} lg={12}>
 										<Image src="/LOGOU.jpg" preview={false} />
 									</Col>
@@ -148,48 +153,99 @@ const Home = () => {
 								</Row>
 							</Col>
 						</Row>
-						<Row data-aos="fade-right">
-							<Col xs={24}>
-								<Typography.Title className="center-text">
-									Đơn vị tổ chức
-								</Typography.Title>
-							</Col>
-							<Col xs={24}>
-								<Row gutter={[64, 24]} style={{ padding: "3rem" }}>
-									<Col
-										xs={24}
-										lg={12}
-										style={{ display: "flex", alignItems: "center" }}>
-										<Row>
-											<Typography.Paragraph className="text-justify">
-												CLB TVHSV - Vinh dự khi được là đơn vị tổ chức sự kiện
-												Uet Code Camp, tập thể Thư viện luôn cố gắng, nỗ lực hết
-												mình để đưa sân chơi bổ ích cho các bạn sinh viên Công
-												nghệ ngày một chất lượng, chuyên nghiệp hơn nữa.Trải qua
-												16 năm hoạt động, Thư viện Hội Sinh viên luôn hoàn thành
-												tốt sứ mệnh và nhiệm vụ của mình, ngày càng phát triển
-												để tự hào là một trong những câu lạc bộ hàng đầu UET.
-											</Typography.Paragraph>
-											<Link to="/blog/2">
-												<Button type="primary" size="large">
-													Xem thêm
-												</Button>
-											</Link>
-										</Row>
-									</Col>
-									<Col xs={24} lg={12}>
-										<Image src="/clb.png" preview={false} />
-									</Col>
-								</Row>
-							</Col>
-						</Row>
+						{isDesktop ? (
+							<Row data-aos="fade-right">
+								<Col xs={24}>
+									<Typography.Title
+										level={isDesktop ? 1 : 2}
+										className="center-text">
+										Đơn vị tổ chức
+									</Typography.Title>
+								</Col>
+								<Col xs={24}>
+									<Row
+										gutter={[64, 24]}
+										style={{ padding: isDesktop ? "3rem" : 0 }}>
+										<Col
+											xs={24}
+											lg={12}
+											style={{ display: "flex", alignItems: "center" }}>
+											<Row>
+												<Typography.Paragraph className="text-justify">
+													CLB TVHSV - Vinh dự khi được là đơn vị tổ chức sự kiện
+													Uet Code Camp, tập thể Thư viện luôn cố gắng, nỗ lực
+													hết mình để đưa sân chơi bổ ích cho các bạn sinh viên
+													Công nghệ ngày một chất lượng, chuyên nghiệp hơn
+													nữa.Trải qua 16 năm hoạt động, Thư viện Hội Sinh viên
+													luôn hoàn thành tốt sứ mệnh và nhiệm vụ của mình, ngày
+													càng phát triển để tự hào là một trong những câu lạc
+													bộ hàng đầu UET.
+												</Typography.Paragraph>
+												<Link to="/blog/2">
+													<Button type="primary" size="large">
+														Xem thêm
+													</Button>
+												</Link>
+											</Row>
+										</Col>
+										<Col xs={24} lg={12}>
+											<Image src="/clb.png" preview={false} />
+										</Col>
+									</Row>
+								</Col>
+							</Row>
+						) : (
+							<Row data-aos="fade-right">
+								<Col xs={24}>
+									<Typography.Title
+										level={isDesktop ? 1 : 2}
+										className="center-text">
+										Đơn vị tổ chức
+									</Typography.Title>
+								</Col>
+								<Col xs={24}>
+									<Row
+										gutter={[64, 24]}
+										style={{ padding: isDesktop ? "3rem" : 0 }}>
+										<Col xs={24} lg={12}>
+											<Image src="/clb.png" preview={false} />
+										</Col>
+										<Col
+											xs={24}
+											lg={12}
+											style={{ display: "flex", alignItems: "center" }}>
+											<Row>
+												<Typography.Paragraph className="text-justify">
+													CLB TVHSV - Vinh dự khi được là đơn vị tổ chức sự kiện
+													Uet Code Camp, tập thể Thư viện luôn cố gắng, nỗ lực
+													hết mình để đưa sân chơi bổ ích cho các bạn sinh viên
+													Công nghệ ngày một chất lượng, chuyên nghiệp hơn
+													nữa.Trải qua 16 năm hoạt động, Thư viện Hội Sinh viên
+													luôn hoàn thành tốt sứ mệnh và nhiệm vụ của mình, ngày
+													càng phát triển để tự hào là một trong những câu lạc
+													bộ hàng đầu UET.
+												</Typography.Paragraph>
+												<Link to="/blog/2">
+													<Button type="primary" size="large">
+														Xem thêm
+													</Button>
+												</Link>
+											</Row>
+										</Col>
+									</Row>
+								</Col>
+							</Row>
+						)}
 					</Col>
 				</Row>
 			</Col>
 			<Col xs={24} className="no-padding">
-				<Row>
-					<Col xs={24} data-aos="fade-up">
-						<Typography.Title className="center-text">
+				<Row style={{ padding: isDesktop ? 0 : "1rem" }}>
+					<Col
+						xs={24}
+						data-aos="fade-up"
+						style={{ padding: isDesktop ? 0 : "1rem" }}>
+						<Typography.Title level={isDesktop ? 1 : 2} className="center-text">
 							6 lý do không nên bỏ lỡ UCC
 						</Typography.Title>
 					</Col>
@@ -199,10 +255,10 @@ const Home = () => {
 								display: "grid",
 								gridTemplateColumns: isDesktop ? "auto auto auto" : "auto",
 								gap: "2rem 5rem",
-								paddingRight: "7rem",
-								paddingLeft: "7rem",
-								paddingBottom: "5rem",
-								fontSize: 24,
+								paddingRight: isDesktop ? "7rem" : "2rem",
+								paddingLeft: isDesktop ? "7rem" : "2rem",
+								paddingBottom: isDesktop ? "5rem" : 0,
+								fontSize: isDesktop ? 24 : "1rem",
 							}}>
 							{INTRODUCES.map((item, index) => (
 								<div
@@ -241,13 +297,13 @@ const Home = () => {
 				xs={24}
 				style={{
 					backgroundColor: "#C7B795",
-					paddingTop: "5rem",
-					paddingLeft: "2rem",
-					paddingRight: "2rem",
-					paddingBottom: "2rem",
+					paddingTop: isDesktop ? "5rem" : 0,
+					paddingLeft: isDesktop ? "2rem" : 0,
+					paddingRight: isDesktop ? "2rem" : 0,
+					paddingBottom: isDesktop ? "2rem" : 0,
 				}}>
 				<Row data-aos="fade-up">
-					<Col xs={24}>
+					<Col xs={24} style={{ paddingTop: isMobile ? "2rem" : 0 }}>
 						<Typography.Title className="center-text">
 							Timeline
 						</Typography.Title>
@@ -259,8 +315,8 @@ const Home = () => {
 							}}>
 							<Steps
 								style={{
-									paddingTop: "2rem",
-									paddingBottom: "5rem",
+									paddingTop: isDesktop ? "2rem" : 0,
+									paddingBottom: isDesktop ? "5rem" : "2rem",
 									paddingLeft: "5rem",
 									paddingRight: "5rem",
 									backgroundColor: "#C7B795",
@@ -282,13 +338,13 @@ const Home = () => {
 						paddingTop: 0,
 					}}>
 					<Col xs={24}>
-						<Typography.Title className="center-text">
+						<Typography.Title className="center-text" level={isDesktop ? 1 : 2}>
 							Tham gia UET Code Camp
 						</Typography.Title>
 					</Col>
 					<Col xs={24}>
 						<div className="center-text">
-							<Typography.Text style={{ fontSize: 18 }}>
+							<Typography.Text style={{ fontSize: isDesktop ? 18 : "1rem" }}>
 								Khám phá công nghệ mới, thu lượm kỹ năng về phát triển phẩn mềm,
 								tại sao không?
 							</Typography.Text>

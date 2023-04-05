@@ -5,6 +5,8 @@ import {
 	FacebookSquareCustomIcon,
 } from "@/constants/Icons";
 import { MailFilled } from "@ant-design/icons";
+import { useContext } from "react";
+import { AppContext } from "@/contexts";
 
 const btnStyle = {
 	padding: 0,
@@ -22,11 +24,12 @@ const CustomBtn = ({ children }) => (
 );
 
 const Footer = () => {
+	const { isDesktop } = useContext(AppContext);
 	return (
 		<ConfigProvider
 			theme={{
 				token: {
-					fontSize: "1.25rem",
+					fontSize: isDesktop ? "1.25rem" : "1rem",
 					lineHeight: "2rem",
 				},
 			}}>
@@ -95,7 +98,9 @@ const Footer = () => {
 						<Col xs={24} sm={24} md={12} xl={12} style={colStyle}>
 							<Row>
 								<Col xs={24} style={colStyle}>
-									<Row style={{ display: "flex", alignContent: "flex-start" }}>
+									<Row
+										gutter={[5, 5]}
+										style={{ display: "flex", alignContent: "flex-start" }}>
 										<Col xs={24}>
 											<Typography.Title
 												level={4}
