@@ -1,11 +1,23 @@
-import { Typography, Row, Col, Button, Space, Divider, Image } from "antd";
+import {
+	Typography,
+	Row,
+	Col,
+	Button,
+	Space,
+	Divider,
+	Image,
+	List,
+	Steps,
+	ConfigProvider,
+} from "antd";
 import { TypeAnimation } from "react-type-animation";
 import { Link } from "react-router-dom";
 
-import { INTRODUCES } from "@/constants";
+import { INTRODUCES, TIMELINE_END, TIMELINE_START } from "@/constants";
 import { useContext } from "react";
 import { AppContext } from "@/contexts";
 import { SUPPORTERS, INVESTORS } from "@/constants";
+import Fade from "react-reveal/Fade";
 
 const SupporterAndInvestor = () => (
 	<Col xs={24}>
@@ -67,6 +79,7 @@ const Home = () => {
 					display: "flex",
 					flexDirection: "column",
 					justifyContent: "center",
+					padding: "0 2rem",
 				}}>
 				<Typography.Title style={{ color: "#593767" }}>
 					<TypeAnimation
@@ -94,103 +107,168 @@ const Home = () => {
 					</Link>
 				</Space>
 			</Col>
-			<Col xs={24} className="no-padding">
-				<div
-					style={{
-						display: "grid",
-						gridTemplateColumns: isDesktop ? "auto auto auto" : "auto",
-						gap: "2rem 5rem",
-						padding: "5rem 10rem",
-						backgroundColor: "#C7B795",
-						fontSize: 24,
-					}}>
-					{INTRODUCES.map((item, index) => (
-						<div key={index} style={{ display: "flex", alignItems: "center" }}>
-							<div
-								style={{
-									width: 32,
-									display: "flex",
-									justifyContent: "center",
-									marginRight: "2rem",
-								}}>
-								{item["icon"]}
-							</div>
-							<div
-								style={{
-									display: "flex",
-									flexDirection: "column",
-								}}>
-								<Typography.Title level={4} style={{ fontSize: "1rem" }}>
-									{item["title"]}
-								</Typography.Title>
-								<Typography.Paragraph
-									style={{ textAlign: "justify", fontSize: "1rem" }}>
-									{item["description"]}
-								</Typography.Paragraph>
-							</div>
-						</div>
-					))}
-				</div>
-			</Col>
-			<Col xs={24}>
+			<Col xs={24} style={{ backgroundColor: "#C7B795" }}>
 				<Row style={{ padding: "5rem" }}>
 					<Col xs={24}>
-						<Typography.Title className="center-text">
-							UET Code Camp là gì?
-						</Typography.Title>
-						<Typography.Paragraph className="text-justify">
-							UET Code Camp là một sự kiện dành cho các sinh viên công nghệ đam
-							mê, yêu thích lập trình, được hướng tới tổ chức thường niên. Mỗi
-							mùa tổ chức, chương trình được chia ra với nhiều đơn vị nhỏ hơn
-							tương ứng với một đề tài và mọi người có thể tham gia đề tài mình
-							yêu thích, mỗi đơn vị nhỏ như vậy được gọi là camp.
-						</Typography.Paragraph>
-						<Typography.Paragraph className="text-justify">
-							Mỗi camp có thời gian kéo dài 2 tháng. Khi tham gia một camp, các
-							bạn sinh viên sẽ có cơ hội tìm hiểu về một đề tài công nghệ và
-							chính mình được trải nghiệm công nghệ đó thông qua các sự kiện nhỏ
-							hơn được tổ chức:
-						</Typography.Paragraph>
-						<Typography.Paragraph className="text-justify">
-							<ul>
-								<li>Tự học và đào sâu những vấn đề chính của công nghệ đó.</li>
-								<li>
-									Làm những dự án có tính ứng dụng trong đời sống áp dụng công
-									nghệ đã học.
-								</li>
-								<li>
-									Tham gia những sự kiện nhỏ được tổ chức bởi camp: mini
-									hackathon, những cuộc thi đấu mang tính đồng đội và đối kháng,
-									… mục đích chính để đặt các bạn vào những thử thách, trong đó
-									các bạn sẽ phải nỗ lực hết mình để mang lại kết quả cho mình
-									và đồng đội.
-								</li>
-							</ul>
-						</Typography.Paragraph>
-						<Typography.Paragraph className="text-justify">
-							Đồng hành với các bạn trong suốt camp là đội ngũ những người hướng
-							dẫn (mentor) và trợ giảng (coach), sẽ hướng dẫn và giám sát các
-							bạn tìm hiểu công nghệ. Đội ngũ những người hướng dẫn và trợ giảng
-							là những người có kinh nghiệm trong lĩnh vực công nghệ của họ và
-							có khát khao truyền lửa, truyền đạt kiến thức của mình cho thế hệ
-							trẻ hơn.
-						</Typography.Paragraph>
-						<Typography.Paragraph className="text-justify">
-							Sau khi tham gia một camp, các bạn sinh viên sẽ có cái nhìn tổng
-							quát về một đề tài công nghệ và nâng cao cho mình những kĩ năng
-							mềm, là những hành trang thiết yếu cho các bạn trên con đường sự
-							nghiệp sau này.
-						</Typography.Paragraph>
+						<Fade right>
+							<Row>
+								<Col xs={24}>
+									<Typography.Title className="center-text">
+										UCC-Kết nối đam mê, cùng phê với code
+									</Typography.Title>
+								</Col>
+								<Col xs={24}>
+									<Row gutter={[64, 24]} style={{ padding: "3rem" }}>
+										<Col xs={24} lg={12}>
+											<Image src="/LOGOU.jpg" preview={false} />
+										</Col>
+										<Col
+											xs={24}
+											lg={12}
+											style={{ display: "flex", alignItems: "center" }}>
+											<Row>
+												<Typography.Paragraph className="text-justify">
+													Uet Code Camp là một sân chơi gắn kết cộng đồng các
+													sinh viên Công nghệ có niềm đam mê, yêu thích lập
+													trình. Với slogan “Kết nối đam mê, cùng phê với Code”
+													Uet Code Camp luôn mong muốn nuôi dưỡng niềm đam mê
+													lập trình trong các bạn sinh viên, luôn giúp đỡ nhau.
+													cùng nhau tiến bộ.
+												</Typography.Paragraph>
+												<Link to="/blog/1">
+													<Button type="primary" size="large">
+														Xem thêm
+													</Button>
+												</Link>
+											</Row>
+										</Col>
+									</Row>
+								</Col>
+							</Row>
+						</Fade>
+						<Fade left>
+							<Row>
+								<Col xs={24}>
+									<Typography.Title className="center-text">
+										Đơn vị tổ chức
+									</Typography.Title>
+								</Col>
+								<Col xs={24}>
+									<Row gutter={[64, 24]} style={{ padding: "3rem" }}>
+										<Col
+											xs={24}
+											lg={12}
+											style={{ display: "flex", alignItems: "center" }}>
+											<Row>
+												<Typography.Paragraph className="text-justify">
+													CLB TVHSV - Vinh dự khi được là đơn vị tổ chức sự kiện
+													Uet Code Camp, tập thể Thư viện luôn cố gắng, nỗ lực
+													hết mình để đưa sân chơi bổ ích cho các bạn sinh viên
+													Công nghệ ngày một chất lượng, chuyên nghiệp hơn
+													nữa.Trải qua 16 năm hoạt động, Thư viện Hội Sinh viên
+													luôn hoàn thành tốt sứ mệnh và nhiệm vụ của mình, ngày
+													càng phát triển để tự hào là một trong những câu lạc
+													bộ hàng đầu UET.
+												</Typography.Paragraph>
+												<Link to="/blog/2">
+													<Button type="primary" size="large">
+														Xem thêm
+													</Button>
+												</Link>
+											</Row>
+										</Col>
+										<Col xs={24} lg={12}>
+											<Image src="/clb.png" preview={false} />
+										</Col>
+									</Row>
+								</Col>
+							</Row>
+						</Fade>
 					</Col>
 				</Row>
 			</Col>
-			{/* <SupporterAndInvestor /> */}
+			<Col xs={24} className="no-padding">
+				<Row>
+					<Col xs={24}>
+						<Typography.Title className="center-text">
+							6 lý do không nên bỏ lỡ UCC
+						</Typography.Title>
+					</Col>
+					<Col xs={24}>
+						<div
+							style={{
+								display: "grid",
+								gridTemplateColumns: isDesktop ? "auto auto auto" : "auto",
+								gap: "2rem 5rem",
+								padding: "0 7rem 5rem 7rem",
+								fontSize: 24,
+							}}>
+							{INTRODUCES.map((item, index) => (
+								<div
+									key={index}
+									style={{ display: "flex", alignItems: "center" }}>
+									<div
+										style={{
+											width: 32,
+											display: "flex",
+											justifyContent: "center",
+											marginRight: "2rem",
+										}}>
+										{item["icon"]}
+									</div>
+									<div
+										style={{
+											display: "flex",
+											flexDirection: "column",
+										}}>
+										<Typography.Title level={4} style={{ fontSize: "1rem" }}>
+											{item["title"]}
+										</Typography.Title>
+										<Typography.Paragraph
+											style={{ textAlign: "justify", fontSize: "1rem" }}>
+											{item["description"]}
+										</Typography.Paragraph>
+									</div>
+								</div>
+							))}
+						</div>
+					</Col>
+				</Row>
+			</Col>
+			<Col
+				xs={24}
+				style={{ backgroundColor: "#C7B795", padding: "5rem 2rem 2rem 2rem" }}>
+				<Row>
+					<Col xs={24}>
+						<Typography.Title className="center-text">
+							Timeline
+						</Typography.Title>
+					</Col>
+					<Col xs={24}>
+						<ConfigProvider
+							theme={{
+								token: { fontSizeLG: 24 },
+							}}>
+							<Steps
+								style={{
+									padding: "2rem 5rem 5rem 5rem",
+									backgroundColor: "#C7B795",
+								}}
+								items={[...TIMELINE_START, ...TIMELINE_END].map((timeline) => ({
+									title: timeline["time"],
+									description: timeline["title"],
+								}))}
+							/>
+						</ConfigProvider>
+					</Col>
+				</Row>
+			</Col>
 			<Col xs={24} className="no-padding">
 				<Row
 					gutter={[0, 24]}
 					style={{
 						padding: "5rem",
-						backgroundColor: "#C7B795",
+						paddingTop: 0,
 					}}>
 					<Col xs={24}>
 						<Typography.Title className="center-text">

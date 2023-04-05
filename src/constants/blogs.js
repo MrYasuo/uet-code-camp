@@ -19,7 +19,7 @@ const BLOGS_LIST = [
 	},
 	{
 		id: 4,
-		title: "DẤU ẤN UET CODE CAMP -2019",
+		title: "DẤU ẤN UET CODE CAMP - 2019",
 		href: "/blog4.md",
 		thumbnail: "./anh3_blog1.jpg",
 	},

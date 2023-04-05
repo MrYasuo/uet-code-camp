@@ -48,11 +48,14 @@ const CustomMenuHorizontalChildren = ({ buttonsList }) => {
 		<Menu
 			mode="horizontal"
 			className="no-border-bottom"
+			style={{
+				padding: 0,
+				fontSize: "1.5rem",
+			}}
 			items={[
 				{
-					label: "Menu",
+					label: <FontAwesomeIcon icon={faSquareCaretDown} />,
 					key: "menu",
-					icon: <FontAwesomeIcon icon={faSquareCaretDown} />,
 					children: Object.keys(buttonsList).map((buttonName) => ({
 						key: buttonName,
 						label: (
@@ -130,18 +133,14 @@ const Header = () => {
 	}, [ref?.current?.clientHeight, viewPort.height]);
 	return (
 		<Row ref={ref} style={{ height: "100%" }}>
-			{isMobile && (
+			{!isDesktop && (
 				<Col style={{ ...colJustifyStartAlignCenter, height: "100%" }}>
-					{isMobile ? (
-						<CustomMenuHorizontalChildren
-							buttonsList={{
-								...MENU_BUTTONS_LIST,
-								...REGISTER_BUTTON,
-							}}
-						/>
-					) : (
-						<CustomMenuVerticalChildren buttonsList={MENU_BUTTONS_LIST} />
-					)}
+					<CustomMenuHorizontalChildren
+						buttonsList={{
+							...MENU_BUTTONS_LIST,
+							...REGISTER_BUTTON,
+						}}
+					/>
 				</Col>
 			)}
 			<Col
@@ -152,13 +151,13 @@ const Header = () => {
 						? logoColTabletStyle
 						: logoColDesktopStyle),
 					height: "100%",
+					padding: "0 2rem",
 				}}>
-				<Link to="/" style={colAllCenter}>
+				<Link to="/" style={{ ...colAllCenter, width: "fit-content" }}>
 					<img
 						src={uetCodeCampLogo}
 						height={40}
 						style={{
-							marginLeft: "50px",
 							marginTop: "auto",
 							marginBottom: "auto",
 							width: "fit-content",

@@ -28,11 +28,11 @@ const MyContent = () => {
 			</Header>
 			<Content style={{ marginTop: "1rem" }}>
 				<Layout className="custom-bg">
-					{isTablet && (
+					{/* {isTablet && (
 						<Sider id="sider">
 							<Sidebar />
 						</Sider>
-					)}
+					)} */}
 					<Content>
 						<Outlet />
 					</Content>

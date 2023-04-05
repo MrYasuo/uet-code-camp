@@ -36,7 +36,7 @@ const RoadMap = () => {
 		<Row gutter={[0, 16]} style={{ padding: "5rem" }}>
 			<Col xs={24}>
 				<Typography.Title className="center-text">
-					Lộ trình UET Code Camp 2019
+					Lộ trình UET Code Camp 2023
 				</Typography.Title>
 			</Col>
 			<Col xs={24}>
@@ -48,7 +48,7 @@ const RoadMap = () => {
 						Mọi thông tin thay đổi sẽ được cập nhật, thông báo tại đây và trên
 						fanpage của{" "}
 						<Link to="https://www.facebook.com/UETCodeCamp">
-							UET Code Camp 2019
+							UET Code Camp 2023
 						</Link>
 						.
 					</Typography.Text>
