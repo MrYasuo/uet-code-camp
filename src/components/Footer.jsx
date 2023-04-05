@@ -1,5 +1,10 @@
 import { Button, Space, Typography, ConfigProvider, Row, Col } from "antd";
 import { Link } from "react-router-dom";
+import {
+	FacebookCustomIcon,
+	FacebookSquareCustomIcon,
+} from "@/constants/Icons";
+import { MailFilled } from "@ant-design/icons";
 
 const btnStyle = {
 	padding: 0,
@@ -90,20 +95,34 @@ const Footer = () => {
 						<Col xs={24} sm={24} md={12} xl={12} style={colStyle}>
 							<Row>
 								<Col xs={24} style={colStyle}>
-									<Typography.Title
-										level={4}
-										className="center-text no-margin-bottom">
-										Liên lạc
-									</Typography.Title>
-								</Col>
-								<Col xs={24} style={colStyle}>
-									<CustomBtn>uetcodecamp@gmail.com</CustomBtn>
-								</Col>
-								<Col xs={24} style={colStyle}>
-									<CustomBtn>https://www.facebook.com/UETCodeCamp</CustomBtn>
-								</Col>
-								<Col xs={24} style={colStyle}>
-									<CustomBtn>https://www.facebook.com/TVHSV.UET</CustomBtn>
+									<Row style={{ display: "flex", alignContent: "flex-start" }}>
+										<Col xs={24}>
+											<Typography.Title
+												level={4}
+												className="center-text no-margin-bottom">
+												Liên lạc
+											</Typography.Title>
+										</Col>
+										<Col xs={24}>
+											<Row gutter={5}>
+												<Col>
+													<Link to="mailto:uetcodecamp@gmail.com">
+														<MailFilled />
+													</Link>
+												</Col>
+												<Col>
+													<Link to="https://www.facebook.com/UETCodeCamp">
+														<FacebookSquareCustomIcon />
+													</Link>
+												</Col>
+												<Col>
+													<Link to="https://www.facebook.com/TVHSV.UET">
+														<FacebookCustomIcon />
+													</Link>
+												</Col>
+											</Row>
+										</Col>
+									</Row>
 								</Col>
 							</Row>
 						</Col>

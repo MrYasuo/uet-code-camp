@@ -14,6 +14,16 @@ import {
 	faPeopleGroup,
 	faStar,
 } from "@fortawesome/free-solid-svg-icons";
+import Icon from "@ant-design/icons";
+import {
+	faFacebook,
+	faFacebookSquare,
+} from "@fortawesome/free-brands-svg-icons";
+
+const FacebookIcon = () => <FontAwesomeIcon icon={faFacebook} />;
+const FacebookSquareIcon = () => <FontAwesomeIcon icon={faFacebookSquare} />;
+const FacebookCustomIcon = () => <Icon component={FacebookIcon} />;
+const FacebookSquareCustomIcon = () => <Icon component={FacebookSquareIcon} />;
 
 const MENU_BUTTONS_LIST = {
 	"Trang chủ": {
@@ -142,4 +152,10 @@ const INTRODUCES = [
 	},
 ];
 
-export { MENU_BUTTONS_LIST, REGISTER_BUTTON, INTRODUCES };
+export {
+	MENU_BUTTONS_LIST,
+	REGISTER_BUTTON,
+	INTRODUCES,
+	FacebookCustomIcon,
+	FacebookSquareCustomIcon,
+};
