@@ -19,21 +19,22 @@ const BlogHome = () => {
 				<Divider style={{ margin: 0 }} />
 			</Col>
 			{blogs.map((blog, i) => (
-				<Col
-					key={i}
-					xs={24}
-					md={12}
-					lg={8}
-					xl={6}
-					style={{ display: "flex", justifyContent: "center" }}>
+				<Col key={i} style={{ display: "flex", justifyContent: "center" }}>
 					<Link to={`/blog/${blog.id}`}>
 						<Card
 							hoverable
-							style={{ width: 240 }}
+							style={{ width: 360 }}
 							cover={
 								<img src={blog.thumbnail} style={{ cursor: "pointer" }} />
 							}>
-							<Meta title={blog.title} description={blog.description} />
+							<Typography.Title level={4} style={{ textAlign: "justify" }}>
+								{blog.title}
+							</Typography.Title>
+							<div style={{ textAlign: "justify" }}>
+								<Typography.Text style={{ opacity: 0.65 }}>
+									{blog.description}
+								</Typography.Text>
+							</div>
 						</Card>
 					</Link>
 				</Col>

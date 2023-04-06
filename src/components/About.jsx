@@ -58,8 +58,14 @@ const MyList = ({ people }) => {
 						<Space
 							direction="vertical"
 							align="center"
+							size="small"
 							style={{ justifyContent: "center" }}>
-							<Typography.Title level={4}>{person.name}</Typography.Title>
+							<Typography.Title
+								level={4}
+								className="center-text"
+								style={{ marginBottom: 0 }}>
+								{person.name}
+							</Typography.Title>
 							{person.role &&
 								person.role
 									.split("\n")
