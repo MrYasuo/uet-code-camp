@@ -35,7 +35,7 @@ const Course = ({ course }) => {
 	return (
 		<Row gutter={[0, 5]} style={{ padding: "5rem" }}>
 			<Col xs={24} style={colAllCenter}>
-				<Typography.Title level={5} className="no-margin-bottom">
+				<Typography.Title level={3} className="no-margin-bottom">
 					{COURSES_LIST[course]["title"]}
 				</Typography.Title>
 			</Col>
@@ -93,7 +93,8 @@ const Course = ({ course }) => {
 							<List
 								dataSource={teacher["prizes"]}
 								renderItem={(prize) => (
-									<List.Item style={{ borderBlockEnd: "none" }}>
+									<List.Item
+										style={{ borderBlockEnd: "none", marginBottom: 0 }}>
 										<Button
 											type="link"
 											style={{
@@ -101,6 +102,7 @@ const Course = ({ course }) => {
 												cursor: "default",
 												display: "flex",
 												alignItems: "center",
+												color: "white",
 											}}
 											icon={
 												<FontAwesomeIcon
@@ -206,14 +208,21 @@ const CoursesMenu = () => {
 	const [course, setCourse] = useState("nodejs");
 	return (
 		<Space direction="vertical">
-			<Menu
-				onClick={(e) => setCourse(e.key)}
-				items={COURSES_MENU_LIST}
-				selectedKeys={[course]}
-				mode="horizontal"
-				className="custom-bg"
-				style={{ padding: "0 5rem" }}
-			/>
+			<div className="courses-menu__container">
+				<Menu
+					onClick={(e) => setCourse(e.key)}
+					items={COURSES_MENU_LIST.map((course) => ({
+						label: (
+							<Typography.Title level={5}>{course["label"]}</Typography.Title>
+						),
+						key: course["key"],
+					}))}
+					selectedKeys={[course]}
+					mode="horizontal"
+					className="custom-bg"
+					style={{ padding: "0 5rem", backgroundColor: "#261c3d" }}
+				/>
+			</div>
 			<Course course={course} />
 		</Space>
 	);

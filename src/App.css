@@ -77,6 +77,11 @@ span {
 	background: #ac86ff !important;
 }
 
+.courses-menu__container .ant-menu-item-selected,
+.courses-menu__container .ant-menu-item-selected::after {
+	border-bottom-color: white !important;
+}
+
 /* Atomic */
 
 .center-text {
