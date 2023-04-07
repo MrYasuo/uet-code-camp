@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import {
 	Menu,
 	Typography,
@@ -8,12 +8,15 @@ import {
 	Button,
 	Row,
 	Col,
+	Divider,
 } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircle } from "@fortawesome/free-solid-svg-icons";
 const { Panel } = Collapse;
 
 import { COURSES_MENU_LIST, COURSES_LIST } from "@/constants";
+import { AppContext } from "@/contexts";
+import "./Course.css";
 
 const colAllCenter = {
 	display: "flex",
@@ -33,7 +36,7 @@ const colJustifyCenter = {
 
 const Course = ({ course }) => {
 	return (
-		<Row gutter={[0, 5]} style={{ padding: "5rem" }}>
+		<Row gutter={[0, 5]} style={{ paddingTop: "1rem" }}>
 			<Col xs={24} style={colAllCenter}>
 				<Typography.Title level={3} className="no-margin-bottom">
 					{COURSES_LIST[course]["title"]}
@@ -51,7 +54,7 @@ const Course = ({ course }) => {
 				</Typography.Text>
 			</Col>
 			<Col xs={24}>
-				<Typography.Paragraph>
+				<Typography.Paragraph style={{ textAlign: "justify" }}>
 					<b>Mô tả: </b>
 					{COURSES_LIST[course]["description"]}
 				</Typography.Paragraph>
@@ -61,8 +64,8 @@ const Course = ({ course }) => {
 					Người hướng dẫn
 				</Typography.Title>
 			</Col>
-			{COURSES_LIST[course]["teachers"].map((teacher) => (
-				<Row>
+			{COURSES_LIST[course]["teachers"].map((teacher, i) => (
+				<Row key={i}>
 					<Col xs={24}>
 						<Typography.Text>
 							<b>Họ tên: </b>
@@ -90,35 +93,21 @@ const Course = ({ course }) => {
 							<Typography.Text>
 								<b>Thành tích nổi bật: </b>
 							</Typography.Text>
-							<List
-								dataSource={teacher["prizes"]}
-								renderItem={(prize) => (
-									<List.Item
-										style={{ borderBlockEnd: "none", marginBottom: 0 }}>
-										<Button
-											type="link"
-											style={{
-												color: "black",
-												cursor: "default",
-												display: "flex",
-												alignItems: "center",
-												color: "white",
-											}}
-											icon={
-												<FontAwesomeIcon
-													icon={faCircle}
-													style={{ margin: "0px 5px", fontSize: "0.25rem" }}
-												/>
-											}>
-											{prize}
-										</Button>
-									</List.Item>
-								)}
-							/>
+							<ul
+								style={{
+									color: "white",
+									marginLeft: "2rem",
+									lineHeight: "1.25rem",
+									marginTop: "1rem",
+								}}>
+								{teacher["prizes"].map((prize, i) => (
+									<li key={i}>{prize}</li>
+								))}
+							</ul>
 						</Col>
 					)}
 					<Col xs={24} style={colAllCenter}>
-						<Typography.Paragraph>
+						<Typography.Paragraph style={{ textAlign: "justify" }}>
 							<b>Giới thiệu: </b>
 							{teacher["description"]}
 						</Typography.Paragraph>
@@ -141,31 +130,11 @@ const Course = ({ course }) => {
 										{lecture["title"]}
 									</Typography.Title>
 								}>
-								<List
-									dataSource={lecture["lessons"]}
-									size="small"
-									renderItem={(lesson) => (
-										<List.Item style={{ borderBlockEnd: "none" }}>
-											<Button
-												type="text"
-												style={{
-													display: "flex",
-													alignItems: "center",
-												}}
-												icon={
-													<FontAwesomeIcon
-														icon={faCircle}
-														style={{
-															margin: "0px 5px",
-															fontSize: "0.25rem",
-														}}
-													/>
-												}>
-												{lesson}
-											</Button>
-										</List.Item>
-									)}
-								/>
+								<ul style={{ listStyleType: "disc", marginLeft: "2rem" }}>
+									{lecture["lessons"].map((lesson, i) => (
+										<li key={i}>{lesson}</li>
+									))}
+								</ul>
 							</Panel>
 						</Collapse>
 					)}
@@ -177,28 +146,11 @@ const Course = ({ course }) => {
 				</Typography.Title>
 			</Col>
 			<Col xs={24}>
-				<List
-					dataSource={COURSES_LIST[course]["goals"]}
-					size="small"
-					renderItem={(goal) => (
-						<List.Item style={{ borderBlockEnd: "none" }}>
-							<Button
-								type="text"
-								style={{
-									display: "flex",
-									alignItems: "center",
-								}}
-								icon={
-									<FontAwesomeIcon
-										icon={faCircle}
-										style={{ margin: "0px 5px", fontSize: "0.25rem" }}
-									/>
-								}>
-								{goal}
-							</Button>
-						</List.Item>
-					)}
-				/>
+				<ul style={{ color: "white", marginLeft: "2rem" }}>
+					{COURSES_LIST[course]["goals"].map((goal, i) => (
+						<li key={i}>{goal}</li>
+					))}
+				</ul>
 			</Col>
 		</Row>
 	);
@@ -206,25 +158,40 @@ const Course = ({ course }) => {
 
 const CoursesMenu = () => {
 	const [course, setCourse] = useState("nodejs");
+	const { isDesktop } = useContext(AppContext);
 	return (
-		<Space direction="vertical">
-			<div className="courses-menu__container">
-				<Menu
-					onClick={(e) => setCourse(e.key)}
-					items={COURSES_MENU_LIST.map((course) => ({
-						label: (
-							<Typography.Title level={5}>{course["label"]}</Typography.Title>
-						),
-						key: course["key"],
-					}))}
-					selectedKeys={[course]}
-					mode="horizontal"
-					className="custom-bg"
-					style={{ padding: "0 5rem", backgroundColor: "#261c3d" }}
-				/>
-			</div>
-			<Course course={course} />
-		</Space>
+		<Row
+			style={{
+				paddingLeft: isDesktop ? "5rem" : "2rem",
+				paddingRight: isDesktop ? "5rem" : "2rem",
+				paddingBottom: "2rem",
+			}}>
+			<Col xs={24}>
+				<div className="courses-menu__container">
+					<Menu
+						onClick={(e) => setCourse(e.key)}
+						items={COURSES_MENU_LIST.map((course) => ({
+							label: (
+								<Typography.Title level={5}>{course["label"]}</Typography.Title>
+							),
+							key: course["key"],
+						}))}
+						selectedKeys={[course]}
+						mode="horizontal"
+						className="custom-bg"
+						style={{
+							backgroundColor: "#261c3d",
+							borderBottom: "none",
+						}}
+					/>
+				</div>
+			</Col>
+			<Col xs={24}>
+				<div className="courses__container">
+					<Course course={course} />
+				</div>
+			</Col>
+		</Row>
 	);
 };
 

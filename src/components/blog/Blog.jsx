@@ -32,7 +32,9 @@ const Blog = () => {
 			<Typography.Title>Uet Code camp là gì?</Typography.Title>
 			<Divider />
 			<Suspense fallback={<div>Loading...</div>}>
-				<ReactMarkdown children={blog} rehypePlugins={[rehypeRaw]} />
+				<div className="blog__container">
+					<ReactMarkdown children={blog} rehypePlugins={[rehypeRaw]} />
+				</div>
 			</Suspense>
 		</Space>
 	);

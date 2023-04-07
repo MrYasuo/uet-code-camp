@@ -76,7 +76,9 @@ const Home = () => {
 		Aos.init({ duration: 1000 });
 	}, []);
 	return (
-		<Row gutter={[16, isDesktop ? 64 : 24]} style={{ height: "100%" }}>
+		<Row
+			gutter={[16, isDesktop ? 64 : 24]}
+			style={{ height: "100%", width: "100%", marginRight: 0, marginLeft: 0 }}>
 			<Col
 				style={{
 					height: viewPort.height - headerHeight,

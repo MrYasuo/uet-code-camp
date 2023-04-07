@@ -18,6 +18,8 @@ p {
 	text-align: justify;
 }
 
-li {
+.blog__container li {
 	margin-bottom: 1rem;
+	margin-top: 1rem;
+	line-height: 1.5rem;
 }

@@ -1,6 +1,7 @@
 import { Row, Col, Timeline, Space, Divider, Collapse, Typography } from "antd";
 import { TIMELINE_START, TIMELINE_END } from "@/constants";
 import { Link } from "react-router-dom";
+import "./RoadMap.css";
 
 const { Panel } = Collapse;
 
@@ -65,7 +66,9 @@ const RoadMap = () => {
 					alignItems: "center",
 					justifyContent: "center",
 				}}>
-				<Timeline mode="alternate" items={items} style={{ width: "100%" }} />
+				<div className="timeline__container" style={{ width: "100%" }}>
+					<Timeline mode="alternate" items={items} />
+				</div>
 				{/* <Steps
 					direction="vertical"
 					current={0}

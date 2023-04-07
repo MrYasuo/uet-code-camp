@@ -82,7 +82,9 @@ const MyList = ({ people }) => {
 
 const About = () => {
 	return (
-		<Space direction="vertical" style={{ width: "100%" }}>
+		<Space
+			direction="vertical"
+			style={{ width: "100%", paddingLeft: "2rem", paddingRight: "2rem" }}>
 			{/* <Typography.Title level={3} className="center-text">
 				Khách mời danh dự
 			</Typography.Title>

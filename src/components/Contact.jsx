@@ -57,14 +57,18 @@ const CustomBtnWithIcon = ({ title, icon, href = null }) => (
 );
 
 const Contact = () => {
-	const { headerHeight, viewPort } = useContext(AppContext);
+	const { headerHeight, viewPort, isDesktop } = useContext(AppContext);
 	return (
 		<ConfigProvider theme={{ token: { fontSize: "1.25rem" } }}>
 			<Row gutter={[0, 16]}>
 				<Col
 					md={24}
 					style={{ ...colAllCenter, height: viewPort.height - headerHeight }}>
-					<Row style={{ paddingLeft: "5rem", paddingRight: "5rem" }}>
+					<Row
+						style={{
+							paddingLeft: isDesktop ? "5rem" : "2rem",
+							paddingRight: isDesktop ? "5rem" : "2rem",
+						}}>
 						<Col
 							xs={24}
 							style={{
@@ -72,13 +76,13 @@ const Contact = () => {
 							}}>
 							<Typography.Title
 								className="center-text"
-								level={2}
+								level={isDesktop ? 2 : 4}
 								style={{ fontSize: "3rem" }}>
 								Thông tin liên hệ
 							</Typography.Title>
 						</Col>
 						<Col xs={24} style={colAllCenter}>
-							<Row gutter={[64, 64]}>
+							<Row gutter={[64, isDesktop ? 64 : 0]}>
 								<Col xs={24} md={12} style={colAllCenter}>
 									<CustomBtnWithIcon
 										icon={faLocationDot}
@@ -119,6 +123,8 @@ const Contact = () => {
 						...colAllCenter,
 						height: viewPort.height - headerHeight,
 						backgroundColor: "#382a5e",
+						paddingLeft: "2rem",
+						paddingRight: "2rem",
 					}}
 					className="custom-bg_1">
 					<Row gutter={[0, 32]}>

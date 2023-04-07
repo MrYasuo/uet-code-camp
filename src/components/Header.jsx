@@ -60,10 +60,10 @@ const CustomMenuHorizontalChildren = ({ buttonsList }) => {
 		<Menu
 			disabledOverflow={true}
 			mode="horizontal"
-			className="no-border-bottom"
 			style={{
 				padding: 0,
 				fontSize: "1.5rem",
+				borderBottom: "1px solid #6a4f73",
 			}}
 			items={[
 				{
