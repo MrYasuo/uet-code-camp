@@ -38,20 +38,22 @@ const logoColMobileStyle = { ...colJustifyEndAlignCenter, flex: 1 };
 const logoColTabletStyle = colJustifyStartAlignCenter;
 const logoColDesktopStyle = colJustifyStartAlignCenter;
 
-const CustomButtonLink = ({ button, buttonName, color = "white" }) => (
-	<Link to={button["children"] ? "#" : button["href"]}>
-		<Button
-			type="text"
-			size="large"
-			icon={button["icon"]}
-			style={{ padding: 0 }}
-			className="disable-hover-bg">
-			<Typography.Text style={{ fontSize: 18, color, opacity: 0.7 }}>
-				{buttonName}
-			</Typography.Text>
-		</Button>
-	</Link>
-);
+const CustomButtonLink = ({ button, buttonName, color = "white" }) => {
+	return (
+		<Link to={button["children"] ? "#" : button["href"]}>
+			<Button
+				type="text"
+				size="large"
+				icon={button["icon"](color)}
+				style={{ padding: 0 }}
+				className="disable-hover-bg">
+				<Typography.Text style={{ fontSize: 18, color, opacity: 0.7 }}>
+					{buttonName}
+				</Typography.Text>
+			</Button>
+		</Link>
+	);
+};
 
 const CustomMenuHorizontalChildren = ({ buttonsList }) => {
 	return (
@@ -70,6 +72,7 @@ const CustomMenuHorizontalChildren = ({ buttonsList }) => {
 						key: buttonName,
 						label: (
 							<CustomButtonLink
+								color="black"
 								button={buttonsList[buttonName]}
 								buttonName={buttonName}
 							/>
@@ -81,6 +84,7 @@ const CustomMenuHorizontalChildren = ({ buttonsList }) => {
 									key: additionalButtonName,
 									label: (
 										<CustomButtonLink
+											color="black"
 											button={
 												buttonsList[buttonName]["children"][
 													additionalButtonName

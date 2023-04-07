@@ -37,46 +37,40 @@ const CustomIcon = (icon, color = "white") => (
 const MENU_BUTTONS_LIST = {
 	"Trang chủ": {
 		href: "/",
-		icon: CustomIcon(faHouse),
+		icon: (color) => CustomIcon(faHouse, color),
 	},
 	"Lộ trình": {
 		href: "/roadmap",
-		icon: CustomIcon(faRoad),
+		icon: (color) => CustomIcon(faRoad, color),
 		children: {
 			"Thời gian": {
 				href: "/roadmap",
-				icon: CustomIcon(faClock, "black"),
+				icon: (color) => CustomIcon(faClock, color),
 			},
 			"Các khoá học": {
 				href: "/courses",
-				icon: CustomIcon(faBookOpenReader, "black"),
+				icon: (color) => CustomIcon(faBookOpenReader, color),
 			},
 		},
 	},
 	"Về chúng tôi": {
 		href: "/about",
-		icon: CustomIcon(faAddressCard),
+		icon: (color) => CustomIcon(faAddressCard, color),
 	},
 	Blog: {
 		href: "/blog",
-		icon: CustomIcon(faBlog),
+		icon: (color) => CustomIcon(faBlog, color),
 	},
 	"Liên hệ": {
 		href: "/contact",
-		icon: CustomIcon(faComments),
+		icon: (color) => CustomIcon(faComments, color),
 	},
 };
 
 const REGISTER_BUTTON = {
 	"Đăng ký ngay": {
 		href: "https://docs.google.com/forms/d/e/1FAIpQLSdSCbquJUboHevq-N-WeokievODPbGIvdKh2Q078GUihswn5w/viewform",
-		icon: (
-			<FontAwesomeIcon
-				className="padding-right-10"
-				color="white"
-				icon={faPenToSquare}
-			/>
-		),
+		icon: (color) => CustomIcon(faPenToSquare, color),
 	},
 };
 

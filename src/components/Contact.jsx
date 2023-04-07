@@ -11,6 +11,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { AppContext } from "@/contexts";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 const btnStyle = {
 	display: "flex",
@@ -47,7 +48,9 @@ const CustomBtnWithIcon = ({ title, icon, href = null }) => (
 				gap: "0.5rem",
 			}}>
 			{title.split("\n").map((text, i) => (
-				<Typography.Text key={i}>{text}</Typography.Text>
+				<Typography.Text key={i} style={{ opacity: 0.7 }}>
+					{text}
+				</Typography.Text>
 			))}
 		</div>
 	</Button>
@@ -112,38 +115,44 @@ const Contact = () => {
 				</Col>
 				<Col
 					md={24}
-					style={{ ...colAllCenter, height: viewPort.height - headerHeight }}
+					style={{
+						...colAllCenter,
+						height: viewPort.height - headerHeight,
+						backgroundColor: "#382a5e",
+					}}
 					className="custom-bg_1">
 					<Row gutter={[0, 32]}>
 						<Col xs={24} style={colAllCenter}>
 							<Typography.Title
 								className="center-text no-margin-bottom"
-								style={{ color: "#d9cfbb", fontSize: "3rem" }}>
+								style={{ fontSize: "3rem" }}>
 								Tham gia UET Code Camp
 							</Typography.Title>
 						</Col>
 						<Col xs={24} style={colAllCenter}>
 							<div className="center-text">
-								<Typography.Text style={{ color: "#d9cfbb" }}>
+								<Typography.Text style={{ opacity: 0.7 }}>
 									Khám phá công nghệ mới, thu lượm kỹ năng về phát triển phần
 									mềm, tại sao không?
 								</Typography.Text>
 							</div>
 						</Col>
 						<Col xs={24} style={colAllCenter}>
-							<Button
-								style={{
-									justifyContent: "center",
-									fontWeight: "bold",
-									color: "#593767",
-									padding: "2rem 3rem 4rem",
-									fontSize: "2rem",
-								}}
-								href="https://docs.google.com/forms/d/e/1FAIpQLSdSCbquJUboHevq-N-WeokievODPbGIvdKh2Q078GUihswn5w/viewform"
-								type="dashed"
-								size="large">
-								ĐĂNG KÝ NGAY
-							</Button>
+							<div className="button__container--gradient">
+								<Link to="https://docs.google.com/forms/d/e/1FAIpQLSdSCbquJUboHevq-N-WeokievODPbGIvdKh2Q078GUihswn5w/viewform">
+									<Button
+										type="primary"
+										style={{
+											justifyContent: "center",
+											fontWeight: "bold",
+											padding: "2rem 3rem 4rem",
+											fontSize: "2rem",
+										}}
+										size="large">
+										ĐĂNG KÝ NGAY
+									</Button>
+								</Link>
+							</div>
 						</Col>
 					</Row>
 				</Col>

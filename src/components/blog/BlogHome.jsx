@@ -23,15 +23,17 @@ const BlogHome = () => {
 					<Link to={`/blog/${blog.id}`}>
 						<Card
 							hoverable
-							style={{ width: 360 }}
+							style={{ width: 360, backgroundColor: "white" }}
 							cover={
 								<img src={blog.thumbnail} style={{ cursor: "pointer" }} />
 							}>
-							<Typography.Title level={4} style={{ textAlign: "justify" }}>
+							<Typography.Title
+								level={4}
+								style={{ textAlign: "justify", color: "black" }}>
 								{blog.title}
 							</Typography.Title>
 							<div style={{ textAlign: "justify" }}>
-								<Typography.Text style={{ opacity: 0.65 }}>
+								<Typography.Text style={{ opacity: 0.65, color: "black" }}>
 									{blog.description}
 								</Typography.Text>
 							</div>

@@ -47,6 +47,7 @@ const MyList = ({ people }) => {
 			renderItem={(person) => (
 				<List.Item>
 					<Card
+						style={{ backgroundColor: "white" }}
 						bordered={false}
 						title={
 							<Avatar
@@ -63,15 +64,15 @@ const MyList = ({ people }) => {
 							<Typography.Title
 								level={4}
 								className="center-text"
-								style={{ marginBottom: 0 }}>
+								style={{ marginBottom: 0, color: "black" }}>
 								{person.name}
 							</Typography.Title>
 							{person.role &&
-								person.role
-									.split("\n")
-									.map((_role, i) => (
-										<Typography.Text key={i}>{_role}</Typography.Text>
-									))}
+								person.role.split("\n").map((_role, i) => (
+									<Typography.Text key={i} style={{ color: "black" }}>
+										{_role}
+									</Typography.Text>
+								))}
 						</Space>
 					</Card>
 				</List.Item>
