@@ -87,7 +87,7 @@ const Home = () => {
 					paddingRight: "2rem",
 					paddingLeft: "2rem",
 				}}>
-				<Typography.Title style={{ color: "#593767" }}>
+				<Typography.Title style={{ color: "white" }}>
 					<TypeAnimation
 						sequence={["Hello,", 500, "Hello, World!", 1000, "", 500]}
 						repeat={Infinity}
@@ -95,25 +95,29 @@ const Home = () => {
 						className="type"></TypeAnimation>
 				</Typography.Title>
 				<Typography.Text
-					style={{ fontSize: 24 }}
+					style={{ fontSize: 24, opacity: 0.7, color: "white" }}
 					className="center-text no-margin">
 					Chào mừng bạn tới UET Codecamp, mình làm quen nhé? :D
 				</Typography.Text>
 				<Divider />
 				<Space>
-					<Link to="https://docs.google.com/forms/d/e/1FAIpQLSdSCbquJUboHevq-N-WeokievODPbGIvdKh2Q078GUihswn5w/viewform">
-						<Button type="primary" size="large">
-							Đăng ký ngay
-						</Button>
-					</Link>
-					<Link to="/roadmap">
-						<Button style={{ backgroundColor: "#c7b795" }} size="large">
-							Xem lộ trình
-						</Button>
-					</Link>
+					<div className="button__container--gradient">
+						<Link to="https://docs.google.com/forms/d/e/1FAIpQLSdSCbquJUboHevq-N-WeokievODPbGIvdKh2Q078GUihswn5w/viewform">
+							<Button type="primary" size="large">
+								Đăng ký ngay
+							</Button>
+						</Link>
+					</div>
+					<div className="button__container">
+						<Link to="/roadmap">
+							<Button size="large" type="primary">
+								Xem lộ trình
+							</Button>
+						</Link>
+					</div>
 				</Space>
 			</Col>
-			<Col xs={24} style={{ backgroundColor: "#C7B795" }}>
+			<Col xs={24} style={{ backgroundColor: "#382a5e" }}>
 				<Row style={{ padding: isDesktop ? "5rem" : "2rem" }}>
 					<Col xs={24}>
 						<Row data-aos="fade-left" style={{ marginBottom: "1rem" }}>
@@ -136,18 +140,22 @@ const Home = () => {
 										lg={12}
 										style={{ display: "flex", alignItems: "center" }}>
 										<Row>
-											<Typography.Paragraph className="text-justify">
+											<Typography.Paragraph
+												className="text-justify"
+												style={{ opacity: 0.7 }}>
 												Uet Code Camp là một sân chơi gắn kết cộng đồng các sinh
 												viên Công nghệ có niềm đam mê, yêu thích lập trình. Với
 												slogan “Kết nối đam mê, cùng phê với Code” Uet Code Camp
 												luôn mong muốn nuôi dưỡng niềm đam mê lập trình trong
 												các bạn sinh viên, luôn giúp đỡ nhau. cùng nhau tiến bộ.
 											</Typography.Paragraph>
-											<Link to="/blog/1">
-												<Button type="primary" size="large">
-													Xem thêm
-												</Button>
-											</Link>
+											<div className="button__container--gradient">
+												<Link to="/blog/1">
+													<Button type="primary" size="large">
+														Xem thêm
+													</Button>
+												</Link>
+											</div>
 										</Row>
 									</Col>
 								</Row>
@@ -171,7 +179,9 @@ const Home = () => {
 											lg={12}
 											style={{ display: "flex", alignItems: "center" }}>
 											<Row>
-												<Typography.Paragraph className="text-justify">
+												<Typography.Paragraph
+													className="text-justify"
+													style={{ opacity: 0.7 }}>
 													CLB TVHSV - Vinh dự khi được là đơn vị tổ chức sự kiện
 													Uet Code Camp, tập thể Thư viện luôn cố gắng, nỗ lực
 													hết mình để đưa sân chơi bổ ích cho các bạn sinh viên
@@ -181,11 +191,13 @@ const Home = () => {
 													càng phát triển để tự hào là một trong những câu lạc
 													bộ hàng đầu UET.
 												</Typography.Paragraph>
-												<Link to="/blog/2">
-													<Button type="primary" size="large">
-														Xem thêm
-													</Button>
-												</Link>
+												<div className="button__container--gradient">
+													<Link to="/blog/2">
+														<Button type="primary" size="large">
+															Xem thêm
+														</Button>
+													</Link>
+												</div>
 											</Row>
 										</Col>
 										<Col xs={24} lg={12}>
@@ -283,7 +295,11 @@ const Home = () => {
 											{item["title"]}
 										</Typography.Title>
 										<Typography.Paragraph
-											style={{ textAlign: "justify", fontSize: "1rem" }}>
+											style={{
+												textAlign: "justify",
+												fontSize: "1rem",
+												opacity: 0.7,
+											}}>
 											{item["description"]}
 										</Typography.Paragraph>
 									</div>
@@ -296,7 +312,7 @@ const Home = () => {
 			<Col
 				xs={24}
 				style={{
-					backgroundColor: "#C7B795",
+					backgroundColor: "#382a5e",
 					paddingTop: isDesktop ? "5rem" : 0,
 					paddingLeft: isDesktop ? "2rem" : 0,
 					paddingRight: isDesktop ? "2rem" : 0,
@@ -311,7 +327,13 @@ const Home = () => {
 					<Col xs={24}>
 						<ConfigProvider
 							theme={{
-								token: { fontSizeLG: 24 },
+								token: {
+									fontSizeLG: 24,
+									colorPrimary: "#845ae2",
+									colorTextDescription: "white",
+									colorFillContent: "#251b3d",
+									colorTextLabel: "grey",
+								},
 							}}>
 							<Steps
 								style={{
@@ -319,10 +341,15 @@ const Home = () => {
 									paddingBottom: isDesktop ? "5rem" : "2rem",
 									paddingLeft: "5rem",
 									paddingRight: "5rem",
-									backgroundColor: "#C7B795",
 								}}
 								items={[...TIMELINE_START, ...TIMELINE_END].map((timeline) => ({
-									title: timeline["time"],
+									title: (
+										<Typography.Title
+											level={4}
+											style={{ whiteSpace: "normal" }}>
+											{timeline["time"]}
+										</Typography.Title>
+									),
 									description: timeline["title"],
 								}))}
 							/>
@@ -351,13 +378,15 @@ const Home = () => {
 						</div>
 					</Col>
 					<Col xs={24}>
-						<Link
-							to="https://docs.google.com/forms/d/e/1FAIpQLSdSCbquJUboHevq-N-WeokievODPbGIvdKh2Q078GUihswn5w/viewform"
-							style={{ display: "flex", justifyContent: "center" }}>
-							<Button type="primary" size="large">
-								ĐĂNG KÝ NGAY
-							</Button>
-						</Link>
+						<div className="button__container">
+							<Link
+								to="https://docs.google.com/forms/d/e/1FAIpQLSdSCbquJUboHevq-N-WeokievODPbGIvdKh2Q078GUihswn5w/viewform"
+								style={{ display: "flex", justifyContent: "center" }}>
+								<Button type="primary" size="large">
+									ĐĂNG KÝ NGAY
+								</Button>
+							</Link>
+						</div>
 					</Col>
 				</Row>
 			</Col>

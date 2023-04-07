@@ -61,13 +61,25 @@ span {
 	margin-inline-end: 0 !important;
 }
 
-/* .ant-steps-item-description,
-.ant-steps-item-content,
-.ant-steps-item-container,
-.ant-steps-item,
-.ant-steps {
-	width: fit-content !important;
-} */
+.menu__container .ant-menu-item:hover::after {
+	border-bottom-color: white !important;
+}
+
+.button__container--gradient button {
+	background: linear-gradient(315deg, #fce043 0%, #fb7ba2 74%);
+}
+
+.button__container--gradient button:hover {
+	background: linear-gradient(315deg, #fce043 0%, #fb7ba2 100%);
+}
+
+.button__container button {
+	background: #845ae2;
+}
+
+.button__container button:hover {
+	background: #ac86ff !important;
+}
 
 /* Atomic */
 

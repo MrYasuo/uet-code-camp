@@ -1,8 +1,16 @@
-import { Button, Menu, Row, Col, Space, Typography } from "antd";
+import {
+	Button,
+	Menu,
+	Row,
+	Col,
+	Space,
+	Typography,
+	ConfigProvider,
+} from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 
-import { uetCodeCampLogo } from "@/assets";
+import { uetCodeCampLogoNoBG } from "@/assets";
 import { MENU_BUTTONS_LIST, REGISTER_BUTTON } from "@/constants";
 import { AppContext } from "@/contexts";
 import { faSquareCaretDown } from "@fortawesome/free-regular-svg-icons";
@@ -30,7 +38,7 @@ const logoColMobileStyle = { ...colJustifyEndAlignCenter, flex: 1 };
 const logoColTabletStyle = colJustifyStartAlignCenter;
 const logoColDesktopStyle = colJustifyStartAlignCenter;
 
-const CustomButtonLink = ({ button, buttonName }) => (
+const CustomButtonLink = ({ button, buttonName, color = "white" }) => (
 	<Link to={button["children"] ? "#" : button["href"]}>
 		<Button
 			type="text"
@@ -38,7 +46,9 @@ const CustomButtonLink = ({ button, buttonName }) => (
 			icon={button["icon"]}
 			style={{ padding: 0 }}
 			className="disable-hover-bg">
-			<Typography.Text style={{ fontSize: 18 }}>{buttonName}</Typography.Text>
+			<Typography.Text style={{ fontSize: 18, color, opacity: 0.7 }}>
+				{buttonName}
+			</Typography.Text>
 		</Button>
 	</Link>
 );
@@ -90,37 +100,42 @@ const CustomMenuHorizontalChildren = ({ buttonsList }) => {
 
 const CustomMenuVerticalChildren = ({ buttonsList }) => {
 	return (
-		<Menu
-			disabledOverflow={true}
-			style={{ backgroundColor: "transparent" }}
-			mode="horizontal"
-			className="no-border-bottom"
-			items={Object.keys(buttonsList).map((buttonName, i) => {
-				return {
-					key: i,
-					label: (
-						<CustomButtonLink
-							button={buttonsList[buttonName]}
-							buttonName={buttonName}
-						/>
-					),
-					children:
-						buttonsList[buttonName]["children"] &&
-						Object.keys(buttonsList[buttonName]["children"]).map(
-							(additionalButtonName) => ({
-								label: (
-									<CustomButtonLink
-										button={
-											buttonsList[buttonName]["children"][additionalButtonName]
-										}
-										buttonName={additionalButtonName}
-									/>
-								),
-							})
+		<div className="menu__container">
+			<Menu
+				disabledOverflow={true}
+				style={{ backgroundColor: "transparent" }}
+				mode="horizontal"
+				className="no-border-bottom"
+				items={Object.keys(buttonsList).map((buttonName, i) => {
+					return {
+						key: i,
+						label: (
+							<CustomButtonLink
+								button={buttonsList[buttonName]}
+								buttonName={buttonName}
+							/>
 						),
-				};
-			})}
-		/>
+						children:
+							buttonsList[buttonName]["children"] &&
+							Object.keys(buttonsList[buttonName]["children"]).map(
+								(additionalButtonName) => ({
+									label: (
+										<CustomButtonLink
+											color="black"
+											button={
+												buttonsList[buttonName]["children"][
+													additionalButtonName
+												]
+											}
+											buttonName={additionalButtonName}
+										/>
+									),
+								})
+							),
+					};
+				})}
+			/>
+		</div>
 	);
 };
 
@@ -155,7 +170,7 @@ const Header = () => {
 				}}>
 				<Link to="/" style={{ ...colAllCenter, width: "fit-content" }}>
 					<img
-						src={uetCodeCampLogo}
+						src={uetCodeCampLogoNoBG}
 						height={40}
 						style={{
 							marginTop: "auto",
@@ -179,19 +194,25 @@ const Header = () => {
 					style={{
 						...colJustifyEndAlignCenter,
 						flex: 1,
+						paddingRight: "1rem",
 					}}>
 					<CustomMenuVerticalChildren buttonsList={MENU_BUTTONS_LIST} />
 				</Col>
 			)}
 			{!isMobile && (
 				<Col style={{ ...colJustifyEndAlignCenter, height: "100%" }}>
-					<Button
-						type="primary"
-						size="large"
-						style={{ marginRight: "50px" }}
-						href="https://docs.google.com/forms/d/e/1FAIpQLSdSCbquJUboHevq-N-WeokievODPbGIvdKh2Q078GUihswn5w/viewform">
-						Đăng ký ngay
-					</Button>
+					<div className="button__container--gradient">
+						<Link to="https://docs.google.com/forms/d/e/1FAIpQLSdSCbquJUboHevq-N-WeokievODPbGIvdKh2Q078GUihswn5w/viewform">
+							<Button
+								type="primary"
+								size="large"
+								style={{
+									marginRight: "50px",
+								}}>
+								Đăng ký ngay
+							</Button>
+						</Link>
+					</div>
 				</Col>
 			)}
 		</Row>

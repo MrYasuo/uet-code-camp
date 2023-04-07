@@ -20,55 +20,66 @@ import { AppContext } from "@/contexts";
 const MyContent = () => {
 	const { isDesktop } = useContext(AppContext);
 	return (
-		<Layout className="custom-bg">
-			<Header
-				className="white-bg"
-				style={{ borderBottom: "1px solid #6a4f73", padding: 0 }}>
-				<MyHeader />
-			</Header>
-			<Content style={{ marginTop: "1rem" }}>
-				<Layout className="custom-bg">
-					{/* {isTablet && (
+		<ConfigProvider
+			theme={{
+				token: {
+					fontFamily: "'Inconsolata', monospace",
+					colorPrimary: "#cebf91",
+					colorBgContainer: "#261C3D",
+					colorBgLayout: "#261C3D",
+					colorText: "white",
+				},
+			}}>
+			<Layout>
+				<Header
+					// className="white-bg"
+					style={{
+						borderBottom: "1px solid #6a4f73",
+						padding: 0,
+						backgroundColor: "#261C3D",
+					}}>
+					<MyHeader />
+				</Header>
+				<Content style={{ marginTop: "1rem" }}>
+					<Layout>
+						{/* {isTablet && (
 						<Sider id="sider">
 							<Sidebar />
 						</Sider>
 					)} */}
-					<Content>
-						<Outlet />
-					</Content>
-				</Layout>
-			</Content>
-			<Footer style={{ padding: isDesktop ? "5rem" : "2rem" }}>
-				<MyFooter />
-			</Footer>
-		</Layout>
+						<Content>
+							<Outlet />
+						</Content>
+					</Layout>
+				</Content>
+				<Footer
+					style={{
+						padding: isDesktop ? "5rem" : "2rem",
+						borderTop: "1px solid #6a4f73",
+					}}>
+					<MyFooter />
+				</Footer>
+			</Layout>
+		</ConfigProvider>
 	);
 };
 
 const App = () => {
 	return (
-		<ConfigProvider
-			theme={{
-				token: {
-					fontFamily: "'Inconsolata', monospace",
-					colorPrimary: "#593767",
-				},
-			}}>
-			<Routes>
-				<Route path="/" element={<MyContent />}>
-					<Route index element={<Home />} />
-					<Route path="home" element={<Home />} />
-					<Route path="roadmap" element={<RoadMap />} />
-					<Route path="courses" element={<CoursesMenu />} />
-					<Route path="about" element={<About />} />
-					<Route path="contact" element={<Contact />} />
-					<Route path="blog">
-						<Route index element={<BlogHome />} />
-						<Route path=":id" element={<Blog />} />
-					</Route>
+		<Routes>
+			<Route path="/" element={<MyContent />}>
+				<Route index element={<Home />} />
+				<Route path="home" element={<Home />} />
+				<Route path="roadmap" element={<RoadMap />} />
+				<Route path="courses" element={<CoursesMenu />} />
+				<Route path="about" element={<About />} />
+				<Route path="contact" element={<Contact />} />
+				<Route path="blog">
+					<Route index element={<BlogHome />} />
+					<Route path=":id" element={<Blog />} />
 				</Route>
-			</Routes>
-		</ConfigProvider>
+			</Route>
+		</Routes>
 	);
 };
 

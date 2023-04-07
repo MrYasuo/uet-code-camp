@@ -1,4 +1,12 @@
-import { Button, Space, Typography, ConfigProvider, Row, Col } from "antd";
+import {
+	Button,
+	Space,
+	Typography,
+	ConfigProvider,
+	Row,
+	Col,
+	Divider,
+} from "antd";
 import { Link } from "react-router-dom";
 import {
 	FacebookCustomIcon,
