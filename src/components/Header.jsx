@@ -58,6 +58,7 @@ const CustomButtonLink = ({ button, buttonName, color = "white" }) => {
 const CustomMenuHorizontalChildren = ({ buttonsList }) => {
 	return (
 		<Menu
+			disabledOverflow={true}
 			mode="horizontal"
 			className="no-border-bottom"
 			style={{
