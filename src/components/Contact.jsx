@@ -144,7 +144,7 @@ const Contact = () => {
 							</div>
 						</Col>
 						<Col xs={24} style={colAllCenter}>
-							<div className="button__container--gradient">
+							<div className="button__container">
 								<Link to="https://docs.google.com/forms/d/e/1FAIpQLSdSCbquJUboHevq-N-WeokievODPbGIvdKh2Q078GUihswn5w/viewform">
 									<Button
 										type="primary"

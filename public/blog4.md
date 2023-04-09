@@ -1,4 +1,4 @@
-Tiếp nối thành công của Uet Code Camp 2018, Uet Code Camp mùa 2  mùa 2 trở lại với quy mô mở rộng với nhiều điều độc đáo, đặc sắc và mới mẻ hơn với chủ đề “Hello, World!”. Đặc biệt ở mùa 2 có sự đồng hành của các nhà tài trợ là các công ty nổi tiếng về Công nghệ như: Sun Asterisk, Sun Inc., Foobla Viet Nam.
+Tiếp nối thành công của Uet Code Camp 2018, Uet Code Camp mùa 2 trở lại với quy mô mở rộng với nhiều điều độc đáo, đặc sắc và mới mẻ hơn với chủ đề “Hello, World!”. Đặc biệt ở mùa 2 có sự đồng hành của các nhà tài trợ là các công ty nổi tiếng về Công nghệ như: Sun Asterisk, Sun Inc., Foobla Viet Nam.
 
 Vòng test đã diễn ra vào ngày 11/03/2019 tại giảng đường 2 (GĐ2) với sự tham gia của hơn 200 sinh viên.
 

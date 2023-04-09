@@ -102,22 +102,26 @@ const Home = () => {
 					Chào mừng bạn tới UET Codecamp, mình làm quen nhé? :D
 				</Typography.Text>
 				<Divider />
-				<Space>
-					<div className="button__container--gradient">
-						<Link to="https://docs.google.com/forms/d/e/1FAIpQLSdSCbquJUboHevq-N-WeokievODPbGIvdKh2Q078GUihswn5w/viewform">
-							<Button type="primary" size="large">
-								Đăng ký ngay
-							</Button>
-						</Link>
-					</div>
-					<div className="button__container">
-						<Link to="/roadmap">
-							<Button size="large" type="primary">
-								Xem lộ trình
-							</Button>
-						</Link>
-					</div>
-				</Space>
+				<Row gutter={16}>
+					<Col>
+						<div className="button__container">
+							<Link to="https://docs.google.com/forms/d/e/1FAIpQLSdSCbquJUboHevq-N-WeokievODPbGIvdKh2Q078GUihswn5w/viewform">
+								<Button type="primary" size="large">
+									Đăng ký ngay
+								</Button>
+							</Link>
+						</div>
+					</Col>
+					<Col>
+						<div className="button__container--2">
+							<Link to="/roadmap">
+								<Button size="large" type="primary">
+									Xem lộ trinh
+								</Button>
+							</Link>
+						</div>
+					</Col>
+				</Row>
 			</Col>
 			<Col xs={24} style={{ backgroundColor: "#382a5e" }}>
 				<Row style={{ padding: isDesktop ? "5rem" : "2rem" }}>
@@ -159,7 +163,7 @@ const Home = () => {
 												luôn mong muốn nuôi dưỡng niềm đam mê lập trình trong
 												các bạn sinh viên, luôn giúp đỡ nhau. cùng nhau tiến bộ.
 											</Typography.Paragraph>
-											<div className="button__container--gradient">
+											<div className="button__container">
 												<Link to="/blog/1">
 													<Button type="primary" size="large">
 														Xem thêm
@@ -198,14 +202,15 @@ const Home = () => {
 												className="text-justify"
 												style={{ opacity: 0.7, fontSize: "1.25rem" }}>
 												CLB TVHSV - Vinh dự khi được là đơn vị tổ chức sự kiện
-												Uet Code Camp, tập thể Thư viện luôn cố gắng, nỗ lực hết
+												UET Code Camp, tập thể Thư viện luôn cố gắng, nỗ lực hết
 												mình để đưa sân chơi bổ ích cho các bạn sinh viên Công
-												nghệ ngày một chất lượng, chuyên nghiệp hơn nữa.Trải qua
-												16 năm hoạt động, Thư viện Hội Sinh viên luôn hoàn thành
-												tốt sứ mệnh và nhiệm vụ của mình, ngày càng phát triển
-												để tự hào là một trong những câu lạc bộ hàng đầu UET.
+												nghệ ngày một chất lượng, chuyên nghiệp hơn nữa. Trải
+												qua 16 năm hoạt động, Thư viện Hội Sinh viên luôn hoàn
+												thành tốt sứ mệnh và nhiệm vụ của mình, ngày càng phát
+												triển để tự hào là một trong những câu lạc bộ hàng đầu
+												UET.
 											</Typography.Paragraph>
-											<div className="button__container--gradient">
+											<div className="button__container">
 												<Link to="/blog/2">
 													<Button type="primary" size="large">
 														Xem thêm

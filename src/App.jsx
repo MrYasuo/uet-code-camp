@@ -23,7 +23,7 @@ const MyContent = () => {
 		<ConfigProvider
 			theme={{
 				token: {
-					fontFamily: "'Inconsolata', monospace",
+					fontFamily: "'Roboto', sans-serif",
 					colorPrimary: "#cebf91",
 					colorBgContainer: "#261C3D",
 					colorBgLayout: "#261C3D",

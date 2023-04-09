@@ -61,20 +61,20 @@ span {
 	margin-inline-end: 0 !important;
 }
 
-.button__container--gradient button {
-	background: linear-gradient(315deg, #fce043 0%, #fb7ba2 74%);
-}
-
-.button__container--gradient button:hover {
-	background: linear-gradient(315deg, #fce043 0%, #fb7ba2 100%);
-}
-
 .button__container button {
 	background: #845ae2;
 }
 
 .button__container button:hover {
 	background: #ac86ff !important;
+}
+
+.button__container--2 button {
+	background: #fb7ba2;
+}
+
+.button__container--2 button:hover {
+	background: #ff9bc9 !important;
 }
 
 .courses-menu__container .ant-menu-item-selected,
