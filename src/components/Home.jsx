@@ -70,7 +70,7 @@ const SupporterAndInvestor = () => (
 );
 
 const Home = () => {
-	const { isDesktop, isMobile, headerHeight, viewPort } =
+	const { isDesktop, isMobile, isTablet, headerHeight, viewPort } =
 		useContext(AppContext);
 	useEffect(() => {
 		Aos.init({ duration: 1000 });
@@ -133,9 +133,17 @@ const Home = () => {
 							<Col xs={24}>
 								<Row
 									gutter={[64, 24]}
-									style={{ padding: isDesktop ? "3rem" : 0 }}>
-									<Col xs={24} lg={12}>
-										<Image src="/LOGOU.jpg" preview={false} />
+									style={{
+										padding: isDesktop ? "3rem" : 0,
+										display: "flex",
+										justifyContent: "center",
+										alignItems: "center",
+									}}>
+									<Col
+										xs={24}
+										sm={12}
+										style={{ display: "flex", justifyContent: "center" }}>
+										<img src="/LOGOU.jpg" style={{ width: "80%" }} />
 									</Col>
 									<Col
 										xs={24}
@@ -144,7 +152,7 @@ const Home = () => {
 										<Row>
 											<Typography.Paragraph
 												className="text-justify"
-												style={{ opacity: 0.7 }}>
+												style={{ opacity: 0.7, fontSize: "1.25rem" }}>
 												Uet Code Camp là một sân chơi gắn kết cộng đồng các sinh
 												viên Công nghệ có niềm đam mê, yêu thích lập trình. Với
 												slogan “Kết nối đam mê, cùng phê với Code” Uet Code Camp
@@ -163,93 +171,58 @@ const Home = () => {
 								</Row>
 							</Col>
 						</Row>
-						{isDesktop ? (
-							<Row data-aos="fade-right">
-								<Col xs={24}>
-									<Typography.Title
-										level={isDesktop ? 1 : 2}
-										className="center-text">
-										Đơn vị tổ chức
-									</Typography.Title>
-								</Col>
-								<Col xs={24}>
-									<Row
-										gutter={[64, 24]}
-										style={{ padding: isDesktop ? "3rem" : 0 }}>
-										<Col
-											xs={24}
-											lg={12}
-											style={{ display: "flex", alignItems: "center" }}>
-											<Row>
-												<Typography.Paragraph
-													className="text-justify"
-													style={{ opacity: 0.7 }}>
-													CLB TVHSV - Vinh dự khi được là đơn vị tổ chức sự kiện
-													Uet Code Camp, tập thể Thư viện luôn cố gắng, nỗ lực
-													hết mình để đưa sân chơi bổ ích cho các bạn sinh viên
-													Công nghệ ngày một chất lượng, chuyên nghiệp hơn
-													nữa.Trải qua 16 năm hoạt động, Thư viện Hội Sinh viên
-													luôn hoàn thành tốt sứ mệnh và nhiệm vụ của mình, ngày
-													càng phát triển để tự hào là một trong những câu lạc
-													bộ hàng đầu UET.
-												</Typography.Paragraph>
-												<div className="button__container--gradient">
-													<Link to="/blog/2">
-														<Button type="primary" size="large">
-															Xem thêm
-														</Button>
-													</Link>
-												</div>
-											</Row>
-										</Col>
-										<Col xs={24} lg={12}>
-											<Image src="/clb.png" preview={false} />
-										</Col>
-									</Row>
-								</Col>
-							</Row>
-						) : (
-							<Row data-aos="fade-right">
-								<Col xs={24}>
-									<Typography.Title
-										level={isDesktop ? 1 : 2}
-										className="center-text">
-										Đơn vị tổ chức
-									</Typography.Title>
-								</Col>
-								<Col xs={24}>
-									<Row
-										gutter={[64, 24]}
-										style={{ padding: isDesktop ? "3rem" : 0 }}>
-										<Col xs={24} lg={12}>
-											<Image src="/clb.png" preview={false} />
-										</Col>
-										<Col
-											xs={24}
-											lg={12}
-											style={{ display: "flex", alignItems: "center" }}>
-											<Row>
-												<Typography.Paragraph className="text-justify">
-													CLB TVHSV - Vinh dự khi được là đơn vị tổ chức sự kiện
-													Uet Code Camp, tập thể Thư viện luôn cố gắng, nỗ lực
-													hết mình để đưa sân chơi bổ ích cho các bạn sinh viên
-													Công nghệ ngày một chất lượng, chuyên nghiệp hơn
-													nữa.Trải qua 16 năm hoạt động, Thư viện Hội Sinh viên
-													luôn hoàn thành tốt sứ mệnh và nhiệm vụ của mình, ngày
-													càng phát triển để tự hào là một trong những câu lạc
-													bộ hàng đầu UET.
-												</Typography.Paragraph>
+						<Row data-aos="fade-right">
+							<Col xs={24}>
+								<Typography.Title
+									level={isDesktop ? 1 : 2}
+									className="center-text">
+									Đơn vị tổ chức
+								</Typography.Title>
+							</Col>
+							<Col xs={24}>
+								<Row
+									gutter={[64, 24]}
+									style={{
+										padding: isDesktop ? "3rem" : 0,
+										flexDirection: !isDesktop ? "column-reverse" : "",
+										display: "flex",
+										justifyContent: "center",
+										alignItems: "center",
+									}}>
+									<Col
+										xs={24}
+										lg={12}
+										style={{ display: "flex", alignItems: "center" }}>
+										<Row>
+											<Typography.Paragraph
+												className="text-justify"
+												style={{ opacity: 0.7, fontSize: "1.25rem" }}>
+												CLB TVHSV - Vinh dự khi được là đơn vị tổ chức sự kiện
+												Uet Code Camp, tập thể Thư viện luôn cố gắng, nỗ lực hết
+												mình để đưa sân chơi bổ ích cho các bạn sinh viên Công
+												nghệ ngày một chất lượng, chuyên nghiệp hơn nữa.Trải qua
+												16 năm hoạt động, Thư viện Hội Sinh viên luôn hoàn thành
+												tốt sứ mệnh và nhiệm vụ của mình, ngày càng phát triển
+												để tự hào là một trong những câu lạc bộ hàng đầu UET.
+											</Typography.Paragraph>
+											<div className="button__container--gradient">
 												<Link to="/blog/2">
 													<Button type="primary" size="large">
 														Xem thêm
 													</Button>
 												</Link>
-											</Row>
-										</Col>
-									</Row>
-								</Col>
-							</Row>
-						)}
+											</div>
+										</Row>
+									</Col>
+									<Col
+										xs={24}
+										sm={12}
+										style={{ display: "flex", justifyContent: "center" }}>
+										<img src="/anh2_blog2.png" style={{ width: "80%" }} />
+									</Col>
+								</Row>
+							</Col>
+						</Row>
 					</Col>
 				</Row>
 			</Col>

@@ -106,77 +106,134 @@ const COURSES_LIST = {
 					"Mình là sv K65 CACLC, chuyên ngành Khoa học máy tính. Khi bắt đầu lên đại học, mình cảm thấy khá thích JS nên đã quyết định thử và học, và tính tới giờ mình đã sử dụng và làm việc với Nodejs được gần 3 năm. Trong thời gian rảnh, mình thường hay mày mò sử dụng những công nghệ mới liên quan tới JS, hoặc tìm hiểu sâu và kỹ hơn về Nodejs. Cách để hiểu rõ nhất công nghệ chính là truyền đạt lại ý hiểu của mình cho người khác, nên rất vui được hợp tác và giảng dạy, trao đổi thêm với các bạn về ngôn ngữ JS cũng như Nodejs.",
 			},
 		],
-		lectures: [
+		lessons: [
 			{
-				title: "Làm quen với Javascript",
+				title: "Phần I. Introduction",
 				lessons: [
-					"Javascript là gì?",
-					"Cú pháp",
-					"Biến và kiểu dữ liệu",
-					"Operators, Phép gán",
-					"Hàm và scope",
-					"Object, Array",
-					"Điều kiện và vòng lặp",
+					{
+						title: "Tổng quan Camp Node.js",
+					},
+					{
+						title: "Xây dựng phần mềm",
+						lessons: [
+							"Ứng dụng của phần mềm",
+							"Xây dựng phần mềm trong thực tế",
+						],
+					},
+					{
+						title: "Git và Vscode",
+						lessons: [
+							"Giới thiệu git (cá nhân và nhóm)",
+							"Làm việc với Vscode",
+						],
+					},
+					{
+						title: "Giới thiệu Frontend",
+						lessons: ["HTML", "CSS", "Bootstrap"],
+					},
+					{
+						title: "Deployment",
+					},
 				],
 			},
 			{
-				title: "Làm quen với Node.js",
+				title: "Phần II. Javascript (JS)",
 				lessons: [
-					"Node.js là gì?",
-					"Cài đặt môi trường, ứng dụng Hello World",
-					"npm là gì?",
-					"Developing and debugging",
-					"Môi trường phát triển với Nodemon",
+					{
+						title: "Javascript Tutorial",
+						lessons: [
+							"Biến, các kiểu dữ liệu",
+							"Mảng",
+							"Object",
+							"JS Loop (For, While, If …else, Switch case)",
+						],
+					},
+					{
+						title: "Javascript Versions",
+						lessons: [
+							"Giới thiệu về ES6 (arrow function, module).",
+							"ES6 - khái niệm hoisting, scoping.",
+							"Giới thiệu Node.js (optional)",
+						],
+					},
+					{
+						title: "Javascript Async",
+						lessons: [
+							{
+								title: "Lập trình bất đồng bộ",
+								lessons: [
+									"JS Callbacks",
+									"JS Asynchronous",
+									"JS Asynchronous",
+									"JS Async/Await",
+								],
+							},
+							{
+								title: "Tránh callback hell",
+							},
+							{
+								title: "OOP trong Javascript",
+							},
+						],
+					},
+					{
+						title: "DOM trong Javascript",
+						lessons: [
+							"Giới thiệu DOM",
+							"Sử dụng JS để thay đổi DOM.",
+							"Sử dụng Chrome Dev Tool để debug.",
+						],
+					},
 				],
 			},
 			{
-				title: "Bất đồng bộ",
+				title: "Phần III. Node.js",
 				lessons: [
-					"Bất đồng bộ trong Node.js là gì",
-					"Callstack và Event Loop",
-					"Callback function",
-					"Tìm hiểu về Promise",
-					"Giới thiệu Async/Await",
-				],
-			},
-			{
-				title: "Xây dựng REST API với Express",
-				lessons: [
-					"Http module là gì?",
-					"Cách tạo một web server? Sử dụng Express để tạo 1 web server",
-					"Middleware trong Express",
-					"Middleware trong Express",
-					"MVC là gì? Áp dụng mô hình MVC trong Express",
-					"Sử dụng POSTMan để test request",
-				],
-			},
-			{
-				title: "Xử lý dữ liệu với MongoDB",
-				lessons: [
-					"Hệ quản trị cơ sở dữ liệu là gì?",
-					"MongoDB là gì? Cách cài đặt MongoDB",
-					"Mongoose là gì? Schema, Model trong Mongoose",
-					"CURD trong Mongoose",
-					"Kết hợp với Express để xây dựng REST API",
-				],
-			},
-			{
-				title: "Bảo mật và xác thực trong ứng dụng REST API",
-				lessons: [
-					"Tại sao phải bảo mật cho REST API",
-					"JWT là gì? JWT hoạt động như thế nào",
-					"Áp dụng JWT cho REST API",
-					"Mã hóa mật khẩu",
-				],
-			},
-			{
-				title: "Xây dựng ứng dụng thời gian thực",
-				lessons: [
-					"WebSocket là gì?",
-					"Tại sao phải dùng WebSocket thay vì HTTP",
-					"Socket.IO là gì? Áp dụng Socket.IO vào ứng dụng",
-					"Lắng nghe và phát sự kiện trong Socket.IO",
-					"Broadcasting Events",
+					{
+						title: "Node.js Tutorial",
+						lessons: [
+							"Giới thiệu Node.js",
+							"Demo ứng dụng sẽ làm.",
+							"Node Package Manager (npm).",
+							"Framework Express.js.",
+							"Cấu trúc thư mục 1 dự án Node.js, cách setup và chạy server với ES6.",
+						],
+					},
+					{
+						title: "Cấu trúc dự án với Node.js",
+						lessons: [
+							"Giới thiệu mô hình MVC",
+							"Giới thiệu routing (Sử dụng params url)",
+							"Giới thiệu và khởi tạo Restful API",
+							"HTTP Code",
+						],
+					},
+					{
+						title: "Node.js MongoDB",
+						lessons: [
+							"Giới thiệu về database MongoDB",
+							"Làm việc với MongoDB (kết nối, cấu hình, thư viện mongoose)",
+							"Thiết kế CSDL cho todo app và các use cases",
+							"CRUD",
+						],
+					},
+					{
+						title: "Thực hành kết hợp Frontend",
+						lessons: [
+							"Khởi tạo các form frontend",
+							"Tìm hiểu cách submit data từ form frontend.",
+							"Thao tác đơn giản với server qua API (create, read, update, delete).",
+						],
+					},
+					{
+						title: "Authorization và Authenticate api NodeJS",
+						lessons: [
+							"Authenticate (login, signup) cơ bản.",
+							"Authorization (xác thực người dùng) sử dụng cookie, jwt.",
+							"Middleware",
+							"Giới thiệu Socket.io (nếu các bạn sv muốn làm chat app)",
+						],
+					},
 				],
 			},
 		],
@@ -427,13 +484,13 @@ const TIMELINE_START = [
 	},
 	{
 		title: "Vòng đánh giá năng lực",
-		time: "12/4",
+		time: "17/4",
 		description:
 			"Các thí sinh tham gia vòng đơn sẽ làm một bài kiểm tra đầu vào bằng bài thi lập trình trên giấy",
 	},
 	{
 		title: "Vòng tuyển chọn",
-		time: "17/4",
+		time: "21/4",
 		description:
 			"Vòng phỏng vấn dành cho các thí sinh vượt qua bài kiểm tra đầu vào.",
 	},

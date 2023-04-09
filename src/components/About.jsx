@@ -1,5 +1,8 @@
 import { Avatar, Typography, Space, List, Card, Image, Row, Col } from "antd";
 import { CAMPERS2019, MENTORS, COUNSELORS } from "@/constants";
+import { useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const { Meta } = Card;
 
@@ -44,10 +47,12 @@ const MyList = ({ people }) => {
 				xs: 1,
 			}}
 			dataSource={people}
-			renderItem={(person) => (
-				<List.Item>
+			renderItem={(person, i) => (
+				<List.Item
+					data-aos={i % 2 == 0 ? "fade-right" : "fade-left"}
+					style={{ display: "flex", justifyContent: "center" }}>
 					<Card
-						style={{ backgroundColor: "white" }}
+						style={{ backgroundColor: "white", width: 360, height: 320 }}
 						bordered={false}
 						title={
 							<Avatar
@@ -60,7 +65,7 @@ const MyList = ({ people }) => {
 							direction="vertical"
 							align="center"
 							size="small"
-							style={{ justifyContent: "center" }}>
+							style={{ justifyContent: "center", width: "100%" }}>
 							<Typography.Title
 								level={4}
 								className="center-text"
@@ -69,9 +74,11 @@ const MyList = ({ people }) => {
 							</Typography.Title>
 							{person.role &&
 								person.role.split("\n").map((_role, i) => (
-									<Typography.Text key={i} style={{ color: "black" }}>
-										{_role}
-									</Typography.Text>
+									<div key={i} style={{ textAlign: "center" }}>
+										<Typography.Text style={{ color: "black" }}>
+											{_role}
+										</Typography.Text>
+									</div>
 								))}
 						</Space>
 					</Card>
@@ -81,26 +88,13 @@ const MyList = ({ people }) => {
 };
 
 const About = () => {
+	useEffect(() => {
+		Aos.init({ duration: 1000 });
+	}, []);
 	return (
 		<Space
 			direction="vertical"
 			style={{ width: "100%", paddingLeft: "2rem", paddingRight: "2rem" }}>
-			{/* <Typography.Title level={3} className="center-text">
-				Khách mời danh dự
-			</Typography.Title>
-			<MyList people={GUESTS_OF_HONOR} />
-			<Typography.Title level={3} className="center-text">
-				Đội ngũ truyền lửa
-			</Typography.Title>
-			<MyList people={FIRE_TEAMS} />
-			<Typography.Title level={3} className="center-text">
-				Đội ngũ nhiệt huyết
-			</Typography.Title>
-			<MyList people={ENTHUSIASTIC_TEAMS} />
-			<Typography.Title level={3} className="center-text">
-				Awesome Camper
-			</Typography.Title>
-			<MyList people={AWESOME_CAMPERS} /> */}
 			<Typography.Title level={3} className="center-text">
 				Mentor
 			</Typography.Title>

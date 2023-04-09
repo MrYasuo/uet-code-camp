@@ -1,9 +1,7 @@
-# Uet Code Camp 2023 trở lại với chủ đề cực “nóng”
-
 Đánh dấu sự trở lại ngoạn mục sau 3 năm vắng bóng, UET Code Camp 2023 hứa hẹn sẽ là một sự kiện bùng nổ và nóng bỏng hơn bao giờ hết. Mùa thứ 3 này còn đem đến những sự thay đổi chưa từng có trước đây với một format tập trung nâng cao trải nghiệm, kiến thức thực tế, vượt ra ngoài những bài code khô khan trên giảng đường. Không chỉ khai thác xu hướng mới mẻ và bức thiết của doanh nghiệp trong bối cảnh Công nghệ ngày càng biến đổi, những thử thách mà sự kiện đem lại còn là bài toán mở ra cơ hội đột phá cho thế hệ trẻ, là bước đệm giúp chúng ta tới gần hơn và được tiếp cận với các doanh nghiệp lớn.
 
 <figure>
- <img src='../../anh1_blog5.png' alt='' />
+ <img src='/anh1_blog5.png' alt='' />
  <figcaption></figcaption>
 </figure>
 

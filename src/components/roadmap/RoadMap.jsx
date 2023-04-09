@@ -1,6 +1,7 @@
 import { Row, Col, Timeline, Space, Divider, Collapse, Typography } from "antd";
 import { TIMELINE_START, TIMELINE_END } from "@/constants";
 import { Link } from "react-router-dom";
+import "aos/dist/aos.css";
 import "./RoadMap.css";
 
 const { Panel } = Collapse;

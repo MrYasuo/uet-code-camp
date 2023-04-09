@@ -1,17 +1,5 @@
 import { useContext, useState } from "react";
-import {
-	Menu,
-	Typography,
-	Space,
-	List,
-	Collapse,
-	Button,
-	Row,
-	Col,
-	Divider,
-} from "antd";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircle } from "@fortawesome/free-solid-svg-icons";
+import { Menu, Typography, List, Collapse, Row, Col } from "antd";
 const { Panel } = Collapse;
 
 import { COURSES_MENU_LIST, COURSES_LIST } from "@/constants";
@@ -24,14 +12,36 @@ const colAllCenter = {
 	justifyContent: "center",
 };
 
-const colAlignCenter = {
-	display: "flex",
-	alignItems: "center",
-};
-
-const colJustifyCenter = {
-	display: "flex",
-	justifyContent: "center",
+const Lessons = ({ lessons }) => {
+	if (!lessons) return;
+	if (lessons.length === 0) return;
+	if (typeof lessons[0] === "string")
+		return (
+			<ul style={{ listStyleType: "disc", marginLeft: "2rem" }}>
+				{lessons.map((lesson, i) => (
+					<li key={i}>{lesson}</li>
+				))}
+			</ul>
+		);
+	return (
+		<List
+			dataSource={lessons}
+			renderItem={(lesson) => {
+				return (
+					<Collapse ghost>
+						<Panel
+							header={
+								<Typography.Title level={5} className="no-margin-bottom">
+									{lesson["title"]}
+								</Typography.Title>
+							}>
+							<Lessons lessons={lesson["lessons"]} />
+						</Panel>
+					</Collapse>
+				);
+			}}
+		/>
+	);
 };
 
 const Course = ({ course }) => {
@@ -46,18 +56,6 @@ const Course = ({ course }) => {
 				<Typography.Text style={{ fontStyle: "italic" }}>
 					{COURSES_LIST[course]["short"]}
 				</Typography.Text>
-			</Col>
-			<Col xs={24}>
-				<Typography.Text>
-					<b>Mức độ: </b>
-					{COURSES_LIST[course]["level"]}
-				</Typography.Text>
-			</Col>
-			<Col xs={24}>
-				<Typography.Paragraph style={{ textAlign: "justify" }}>
-					<b>Mô tả: </b>
-					{COURSES_LIST[course]["description"]}
-				</Typography.Paragraph>
 			</Col>
 			<Col xs={24} style={colAllCenter}>
 				<Typography.Title level={5} className="no-margin-bottom">
@@ -120,25 +118,7 @@ const Course = ({ course }) => {
 				</Typography.Title>
 			</Col>
 			<Col xs={24}>
-				<List
-					dataSource={COURSES_LIST[course]["lectures"]}
-					renderItem={(lecture) => (
-						<Collapse ghost>
-							<Panel
-								header={
-									<Typography.Title level={5} className="no-margin-bottom">
-										{lecture["title"]}
-									</Typography.Title>
-								}>
-								<ul style={{ listStyleType: "disc", marginLeft: "2rem" }}>
-									{lecture["lessons"].map((lesson, i) => (
-										<li key={i}>{lesson}</li>
-									))}
-								</ul>
-							</Panel>
-						</Collapse>
-					)}
-				/>
+				<Lessons lessons={COURSES_LIST[course]["lessons"]} />
 			</Col>
 			<Col xs={24} style={colAllCenter}>
 				<Typography.Title level={5} className="no-margin-bottom">

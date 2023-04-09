@@ -1,15 +1,15 @@
 const BLOGS_LIST = [
 	{
 		id: 1,
-		title: "Uet Code Camp là gì?",
+		title: "UET CODE CAMP LÀ GÌ?",
 		href: "/blog1.md",
-		thumbnail: "./anh1_blog1.jpg",
+		thumbnail: "./LOGOU.jpg",
 	},
 	{
 		id: 2,
-		title: "Giới thiệu đơn vị tổ chức",
+		title: "GIỚI THIỆU ĐƠN VỊ TỔ CHỨC",
 		href: "/blog2.md",
-		thumbnail: "./anh2_blog1.jpg",
+		thumbnail: "./anh2_blog2.png",
 	},
 	{
 		id: 3,
@@ -25,7 +25,7 @@ const BLOGS_LIST = [
 	},
 	{
 		id: 5,
-		title: " Uet Code Camp 2023 trở lại với chủ đề cực “nóng”",
+		title: "UET CODE CAMP 2023 TRỞ LẠI VỚI CHỦ ĐỀ CỰC “NÓNG”",
 		href: "/blog5.md",
 		thumbnail: "./anh1_blog5.png",
 	},

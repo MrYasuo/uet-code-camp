@@ -117,7 +117,7 @@ const Footer = () => {
 											</Typography.Title>
 										</Col>
 										<Col xs={24}>
-											<Row gutter={5}>
+											<Row gutter={16}>
 												<Col>
 													<Link to="mailto:uetcodecamp@gmail.com">
 														<MailFilled />
