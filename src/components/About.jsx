@@ -43,16 +43,21 @@ const MyList = ({ people }) => {
 	return (
 		<List
 			grid={{
+				column: 2,
 				gutter: 16,
 				xs: 1,
+				sm: 1,
 			}}
 			dataSource={people}
 			renderItem={(person, i) => (
 				<List.Item
-					data-aos={i % 2 == 0 ? "fade-right" : "fade-left"}
-					style={{ display: "flex", justifyContent: "center" }}>
+					data-aos="fade-up"
+					style={{
+						display: "flex",
+						justifyContent: i % 2 == 0 ? "flex-end" : "flex-start",
+					}}>
 					<Card
-						style={{ backgroundColor: "white", width: 360, height: 320 }}
+						style={{ backgroundColor: "white", width: 360, height: 340 }}
 						bordered={false}
 						title={
 							<Avatar

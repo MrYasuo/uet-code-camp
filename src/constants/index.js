@@ -105,6 +105,20 @@ const COURSES_LIST = {
 				description:
 					"Mình là sv K65 CACLC, chuyên ngành Khoa học máy tính. Khi bắt đầu lên đại học, mình cảm thấy khá thích JS nên đã quyết định thử và học, và tính tới giờ mình đã sử dụng và làm việc với Nodejs được gần 3 năm. Trong thời gian rảnh, mình thường hay mày mò sử dụng những công nghệ mới liên quan tới JS, hoặc tìm hiểu sâu và kỹ hơn về Nodejs. Cách để hiểu rõ nhất công nghệ chính là truyền đạt lại ý hiểu của mình cho người khác, nên rất vui được hợp tác và giảng dạy, trao đổi thêm với các bạn về ngôn ngữ JS cũng như Nodejs.",
 			},
+			{
+				name: "Anh Ngô Gia Nguyên",
+				business: "Software Engineer - Teko Việt Nam",
+				experience: "4 năm kinh nghiệm về Node.js",
+			},
+			{
+				name: "Anh Lê Tuấn Anh",
+				business: "K65 C-A-CLC2",
+				prizes: [
+					"1+ năm kinh nghiệm làm việc với Node.js",
+					"Thực tập sinh bảo trì backend cho dự án thực tại TNHH Phần mềm và Giải pháp Sao Khuê",
+					"Giải đội thi hay nhất do VNG bình chọn phần thi Software Engineering trong cuộc thi UET Hackathon Open 2022.",
+				],
+			},
 		],
 		lessons: [
 			{
@@ -440,12 +454,22 @@ const MENTORS = [
 	{
 		avatar: "./nguyenthaitiep.jpg",
 		name: "Nguyễn Thái Tiệp",
-		role: "Software Engineer - Teko Việt Nam",
+		role: "Software Engineer - Teko Việt Nam\n3+ năm trong lĩnh vực Công nghệ phần mềm",
 	},
 	{
 		avatar: "./phamcongmanhhung.jpg",
 		name: "Phạm Công Mạnh Hùng",
 		role: "Sinh viên nghiên cứu tại lab Công nghệ Phần mềm",
+	},
+	{
+		avatar: "./ngogianguyen.jpg",
+		name: "Ngô Gia Nguyên",
+		role: "Software Engineer - Teko Việt Nam\n4 năm kinh nghiệm về Nodejs",
+	},
+	{
+		avatar: "./letuananh.jpg",
+		name: "Lê Tuấn Anh",
+		role: "TTS bảo trì backend tại Công ty TNHH Phần mềm và Giải pháp Sao Khuê\nGiải đội thi hay nhất cuộc thi UET Hackathon Open 2022",
 	},
 ];
 

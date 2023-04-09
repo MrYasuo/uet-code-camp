@@ -63,7 +63,7 @@ const Course = ({ course }) => {
 				</Typography.Title>
 			</Col>
 			{COURSES_LIST[course]["teachers"].map((teacher, i) => (
-				<Row key={i}>
+				<Row key={i} style={{ width: "100%" }}>
 					<Col xs={24}>
 						<Typography.Text>
 							<b>Họ tên: </b>
@@ -91,25 +91,22 @@ const Course = ({ course }) => {
 							<Typography.Text>
 								<b>Thành tích nổi bật: </b>
 							</Typography.Text>
-							<ul
-								style={{
-									color: "white",
-									marginLeft: "2rem",
-									lineHeight: "1.25rem",
-									marginTop: "1rem",
-								}}>
+							<ul>
 								{teacher["prizes"].map((prize, i) => (
 									<li key={i}>{prize}</li>
 								))}
 							</ul>
 						</Col>
 					)}
-					<Col xs={24} style={colAllCenter}>
-						<Typography.Paragraph style={{ textAlign: "justify" }}>
-							<b>Giới thiệu: </b>
-							{teacher["description"]}
-						</Typography.Paragraph>
-					</Col>
+					{teacher["description"] && (
+						<Col xs={24} style={colAllCenter}>
+							<Typography.Paragraph
+								style={{ textAlign: "justify", lineHeight: "2rem" }}>
+								<b>Giới thiệu: </b>
+								{teacher["description"]}
+							</Typography.Paragraph>
+						</Col>
+					)}
 				</Row>
 			))}
 			<Col xs={24} style={colAllCenter}>
