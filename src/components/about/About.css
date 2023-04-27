@@ -1,0 +1,4 @@
+.about__container.flex-center .ant-col {
+	display: flex;
+	justify-content: center;
+}

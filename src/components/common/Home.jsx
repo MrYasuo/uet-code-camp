@@ -19,6 +19,7 @@ import { AppContext } from "@/contexts";
 import { SUPPORTERS, INVESTORS } from "@/constants";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import { DateTime } from "luxon";
 
 const SupporterAndInvestor = () => (
 	<Col xs={24}>
@@ -322,16 +323,37 @@ const Home = () => {
 									paddingLeft: "5rem",
 									paddingRight: "5rem",
 								}}
-								items={[...TIMELINE_START, ...TIMELINE_END].map((timeline) => ({
-									title: (
-										<Typography.Title
-											level={4}
-											style={{ whiteSpace: "normal" }}>
-											{timeline["time"]}
-										</Typography.Title>
-									),
-									description: timeline["title"],
-								}))}
+								items={[...TIMELINE_START, ...TIMELINE_END].map((timeline) => {
+									const now = DateTime.local();
+									const date = DateTime.fromJSDate(timeline["date"]);
+									console.log(date.toISO());
+									const end = timeline["end"]
+										? DateTime.fromJSDate(timeline["end"])
+										: null;
+									let status = "wait";
+									if (end) {
+										if (date < now && now < end) {
+											status = "process";
+										} else if (now > end) {
+											status = "finish";
+										}
+									} else {
+										if (date < now) {
+											status = "finish";
+										}
+									}
+									return {
+										title: (
+											<Typography.Title
+												level={4}
+												style={{ whiteSpace: "normal" }}>
+												{timeline["time"]}
+											</Typography.Title>
+										),
+										description: timeline["title"],
+										status,
+									};
+								})}
 							/>
 						</ConfigProvider>
 					</Col>

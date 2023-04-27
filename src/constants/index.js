@@ -126,9 +126,11 @@ const COURSES_LIST = {
 				lessons: [
 					{
 						title: "Tổng quan Camp Node.js",
+						day: 1,
 					},
 					{
 						title: "Xây dựng phần mềm",
+						day: 1,
 						lessons: [
 							"Ứng dụng của phần mềm",
 							"Xây dựng phần mềm trong thực tế",
@@ -136,6 +138,7 @@ const COURSES_LIST = {
 					},
 					{
 						title: "Git và Vscode",
+						day: 1,
 						lessons: [
 							"Giới thiệu git (cá nhân và nhóm)",
 							"Làm việc với Vscode",
@@ -143,10 +146,12 @@ const COURSES_LIST = {
 					},
 					{
 						title: "Giới thiệu Frontend",
+						day: 2,
 						lessons: ["HTML", "CSS", "Bootstrap"],
 					},
 					{
 						title: "Deployment",
+						day: 2,
 					},
 				],
 			},
@@ -155,6 +160,7 @@ const COURSES_LIST = {
 				lessons: [
 					{
 						title: "Javascript Tutorial",
+						day: 3,
 						lessons: [
 							"Biến, các kiểu dữ liệu",
 							"Mảng",
@@ -164,6 +170,7 @@ const COURSES_LIST = {
 					},
 					{
 						title: "Javascript Versions",
+						day: 4,
 						lessons: [
 							"Giới thiệu về ES6 (arrow function, module).",
 							"ES6 - khái niệm hoisting, scoping.",
@@ -172,26 +179,20 @@ const COURSES_LIST = {
 					},
 					{
 						title: "Javascript Async",
+						day: 5,
 						lessons: [
-							{
-								title: "Lập trình bất đồng bộ",
-								lessons: [
-									"JS Callbacks",
-									"JS Asynchronous",
-									"JS Asynchronous",
-									"JS Async/Await",
-								],
-							},
-							{
-								title: "Tránh callback hell",
-							},
-							{
-								title: "OOP trong Javascript",
-							},
+							"Lập trình bất đồng bộ",
+							"JS Callbacks",
+							"JS Asynchronous",
+							"JS Asynchronous",
+							"JS Async/Await",
+							"Tránh callback hell",
+							"OOP trong Javascript",
 						],
 					},
 					{
 						title: "DOM trong Javascript",
+						day: 6,
 						lessons: [
 							"Giới thiệu DOM",
 							"Sử dụng JS để thay đổi DOM.",
@@ -205,6 +206,7 @@ const COURSES_LIST = {
 				lessons: [
 					{
 						title: "Node.js Tutorial",
+						day: 7,
 						lessons: [
 							"Giới thiệu Node.js",
 							"Demo ứng dụng sẽ làm.",
@@ -215,6 +217,7 @@ const COURSES_LIST = {
 					},
 					{
 						title: "Cấu trúc dự án với Node.js",
+						day: 8,
 						lessons: [
 							"Giới thiệu mô hình MVC",
 							"Giới thiệu routing (Sử dụng params url)",
@@ -224,6 +227,7 @@ const COURSES_LIST = {
 					},
 					{
 						title: "Node.js MongoDB",
+						day: 9,
 						lessons: [
 							"Giới thiệu về database MongoDB",
 							"Làm việc với MongoDB (kết nối, cấu hình, thư viện mongoose)",
@@ -233,6 +237,7 @@ const COURSES_LIST = {
 					},
 					{
 						title: "Thực hành kết hợp Frontend",
+						day: 10,
 						lessons: [
 							"Khởi tạo các form frontend",
 							"Tìm hiểu cách submit data từ form frontend.",
@@ -241,6 +246,7 @@ const COURSES_LIST = {
 					},
 					{
 						title: "Authorization và Authenticate api NodeJS",
+						day: 11,
 						lessons: [
 							"Authenticate (login, signup) cơ bản.",
 							"Authorization (xác thực người dùng) sử dụng cookie, jwt.",
@@ -452,35 +458,64 @@ const AWESOME_CAMPERS = [
 
 const MENTORS = [
 	{
-		avatar: "./nguyenthaitiep.jpg",
+		avatar: "/nguyenthaitiep.jpg",
+		href: "/nguyenthaitiep",
+		key: "nguyenthaitiep",
 		name: "Nguyễn Thái Tiệp",
 		role: "Software Engineer - Teko Việt Nam\n3+ năm trong lĩnh vực Công nghệ phần mềm",
+		business: "Software Engineer - Teko Việt Nam",
+		experience: "3+ năm trong lĩnh vực Công nghệ phần mềm",
+		description:
+			"Xin chào, Mình là sinh viên K63 khoa CNTT hiện đang là kỹ sư phần mềm tại Teko Việt Nam và cũng là một trong những thành viên của TVHSV. Mình yêu thích lập trình và muốn tạo ra những sản phẩm mang đến nhiều giá trị cho mọi người. Bằng sự hiểu biết và kinh nghiệm ít ỏi của mình, hy vọng sẽ giúp các bạn có nhiều hiểu biết hơn về phần mềm và cách xây dựng ra chúng.",
 	},
 	{
-		avatar: "./phamcongmanhhung.jpg",
+		avatar: "/phamcongmanhhung.jpg",
+		href: "/phamcongmanhhung",
+		key: "phamcongmanhhung",
 		name: "Phạm Công Mạnh Hùng",
 		role: "Sinh viên nghiên cứu tại lab Công nghệ Phần mềm",
+		prizes: [
+			"Giải ba Hội nghị Sinh viên NCKH cấp Khoa năm 2023",
+			"Sinh viên nghiên cứu tại lab Công nghệ Phần mềm",
+			"Thực tập sinh NodeJS tại TokyoLife",
+		],
+		description:
+			"Mình là sv K65 CACLC, chuyên ngành Khoa học máy tính. Khi bắt đầu lên đại học, mình cảm thấy khá thích JS nên đã quyết định thử và học, và tính tới giờ mình đã sử dụng và làm việc với Nodejs được gần 3 năm. Trong thời gian rảnh, mình thường hay mày mò sử dụng những công nghệ mới liên quan tới JS, hoặc tìm hiểu sâu và kỹ hơn về Nodejs. Cách để hiểu rõ nhất công nghệ chính là truyền đạt lại ý hiểu của mình cho người khác, nên rất vui được hợp tác và giảng dạy, trao đổi thêm với các bạn về ngôn ngữ JS cũng như Nodejs.",
 	},
 	{
-		avatar: "./ngogianguyen.jpg",
+		avatar: "/ngogianguyen.jpg",
+		href: "/ngogianguyen",
+		key: "ngogianguyen",
 		name: "Ngô Gia Nguyên",
 		role: "Software Engineer - Teko Việt Nam\n4 năm kinh nghiệm về Nodejs",
+		business: "Software Engineer - Teko Việt Nam",
+		experience: "4 năm kinh nghiệm về Nodejs",
 	},
 	{
-		avatar: "./letuananh.jpg",
+		avatar: "/letuananh.jpg",
+		href: "/letuananh",
+		key: "letuananh",
 		name: "Lê Tuấn Anh",
+		class: "K65 C-A-CLC2",
 		role: "TTS bảo trì backend tại Công ty TNHH Phần mềm và Giải pháp Sao Khuê\nGiải đội thi hay nhất cuộc thi UET Hackathon Open 2022",
+		prizes: [
+			"1+ năm kinh nghiệm làm việc với Node.js",
+			"Thực tập sinh bảo trì backend cho dự án thực tại TNHH Phần mềm và Giải pháp Sao Khuê",
+			"Giải đội thi hay nhất do VNG bình chọn phần thi Software Engineering trong cuộc thi UET Hackathon Open 2022.",
+		],
 	},
 ];
 
 const COUNSELORS = [
 	{
 		avatar: "./tranvantu.jpg",
+		key: "tranvantu",
 		name: "Trần Văn Tú",
 		role: "Mentor nodejs 2 mùa 2018, 2019\nSenior Software Engineer",
 	},
 	{
 		avatar: "./tranmanhcuong.jpg",
+		key: "tranmanhcuong",
 		name: "Trần Mạnh Cường",
 		role: "Giảng viên tại UET\nTham gia UCC 2018, Supporter tech UCC 2019",
 	},
@@ -503,18 +538,21 @@ const TIMELINE_START = [
 	{
 		title: "Mở đơn đăng kí",
 		time: "31/3",
+		date: new Date(2023, 2, 31),
 		description:
 			"Thời gian mở đơn đăng ký tham gia diễn ra từ ngày 31/03 đến 22:00 ngày 07/04. Đăng ký ngay!",
 	},
 	{
 		title: "Vòng đánh giá năng lực",
 		time: "17/4",
+		date: new Date(2023, 3, 17),
 		description:
 			"Các thí sinh tham gia vòng đơn sẽ làm một bài kiểm tra đầu vào bằng bài thi lập trình trên giấy",
 	},
 	{
 		title: "Vòng tuyển chọn",
 		time: "21/4",
+		date: new Date(2023, 3, 21),
 		description:
 			"Vòng phỏng vấn dành cho các thí sinh vượt qua bài kiểm tra đầu vào.",
 	},
@@ -524,12 +562,15 @@ const TIMELINE_END = [
 	{
 		title: "Giai đoạn training",
 		time: "21/04 - 21/06",
+		date: new Date(2023, 3, 21),
+		end: new Date(2023, 5, 21),
 		description:
 			"Quá trình này diễn ra trong vòng 2 tháng, để các thí sinh được học hỏi, bổ sung thêm kiến thức dưới sự hướng dẫn, giảng dạy của các mentor tài năng, giàu kinh nghiệm.",
 	},
 	{
 		title: "Cuộc thi Campathon",
 		time: "06/2023",
+		date: new Date(2023, 5, 1),
 		description:
 			"Thí sinh được chia thành các đội. Các đội thi sẽ phải phát triển một sản phẩm trong 2 ngày dựa trên đề tài được ban tổ chức đưa ra và thuyết trình về sản phẩm đó cho ban tổ chức chấm điểm.",
 	},

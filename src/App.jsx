@@ -1,21 +1,18 @@
-import { Divider, Layout, ConfigProvider } from "antd";
-import { Routes, Route, Outlet } from "react-router-dom";
+import { ConfigProvider, Divider, Layout } from "antd";
+import { Outlet, Route, Routes } from "react-router-dom";
 const { Header, Content, Footer, Sider } = Layout;
 
-import "./App.css";
+import { About, Contact, CoursesMenu, RoadMap, Person } from "@/components";
+import { Blog, BlogHome } from "@/components/blog";
 import {
-	Header as MyHeader,
-	Footer as MyFooter,
-	Sidebar,
 	Home,
-	RoadMap,
-	About,
-	CoursesMenu,
-	Contact,
-} from "@/components";
-import { BlogHome, Blog } from "@/components/blog";
-import { useContext } from "react";
+	Footer as MyFooter,
+	Header as MyHeader,
+	Sidebar,
+} from "@/components/common";
 import { AppContext } from "@/contexts";
+import { useContext } from "react";
+import "./App.css";
 
 const MyContent = () => {
 	const { isDesktop } = useContext(AppContext);
@@ -72,7 +69,10 @@ const App = () => {
 				<Route path="home" element={<Home />} />
 				<Route path="roadmap" element={<RoadMap />} />
 				<Route path="courses" element={<CoursesMenu />} />
-				<Route path="about" element={<About />} />
+				<Route path="about">
+					<Route index element={<About />} />
+					<Route path=":id" element={<Person />} />
+				</Route>
 				<Route path="contact" element={<Contact />} />
 				<Route path="blog">
 					<Route index element={<BlogHome />} />

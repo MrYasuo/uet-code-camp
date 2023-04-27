@@ -7,3 +7,11 @@
 	margin-left: 2rem;
 	line-height: 2rem;
 }
+
+.carousel__container button {
+	background: white !important;
+}
+
+.carousel__container .slick-active button {
+	background: white !important;
+}

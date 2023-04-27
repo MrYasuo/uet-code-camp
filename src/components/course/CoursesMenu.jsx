@@ -1,5 +1,14 @@
-import { useContext, useState } from "react";
-import { Menu, Typography, List, Collapse, Row, Col } from "antd";
+import { useContext, useState, useRef } from "react";
+import {
+	Menu,
+	Typography,
+	List,
+	Collapse,
+	Row,
+	Col,
+	Carousel,
+	Table,
+} from "antd";
 const { Panel } = Collapse;
 
 import { COURSES_MENU_LIST, COURSES_LIST } from "@/constants";
@@ -12,7 +21,7 @@ const colAllCenter = {
 	justifyContent: "center",
 };
 
-const Lessons = ({ lessons }) => {
+const _Lessons = ({ lessons }) => {
 	if (!lessons) return;
 	if (lessons.length === 0) return;
 	if (typeof lessons[0] === "string")
@@ -35,7 +44,7 @@ const Lessons = ({ lessons }) => {
 									{lesson["title"]}
 								</Typography.Title>
 							}>
-							<Lessons lessons={lesson["lessons"]} />
+							<_Lessons lessons={lesson["lessons"]} />
 						</Panel>
 					</Collapse>
 				);
@@ -44,9 +53,110 @@ const Lessons = ({ lessons }) => {
 	);
 };
 
-const Course = ({ course }) => {
+function unpack(obj, ...keys) {
+	let titles = [];
+	function traverse(detail, level, data, isObj = true) {
+		data["key"] = titles.length;
+		if (isObj) {
+			if (detail.day) data["day"] = detail.day;
+			data[keys[level]] = detail["title"];
+			if (!detail.lessons) titles.push(data);
+		} else {
+			data[keys[level]] = detail;
+			titles.push(data);
+		}
+		if (detail.lessons && detail.lessons.length > 0) {
+			detail.lessons.forEach((lesson) => {
+				const newData = { ...data };
+				if (typeof lesson === "string")
+					traverse(lesson, level + 1, newData, false);
+				else traverse(lesson, level + 1, newData);
+			});
+		}
+	}
+	traverse(obj, 0, {});
+	return titles;
+}
+
+const Lessons = ({ data, columns }) => {
 	return (
-		<Row gutter={[0, 5]} style={{ paddingTop: "1rem" }}>
+		<Table columns={columns} dataSource={data} pagination={false} bordered />
+	);
+};
+
+const Course = ({ course }) => {
+	const prevDay = useRef(0);
+	const prevPart = useRef(null);
+	const prevContent = useRef(null);
+
+	const columns = [
+		{
+			title: "Buổi",
+			dataIndex: "day",
+			onCell: (record) => {
+				if (record["day"] !== prevDay.current) {
+					prevDay.current = record["day"];
+					return {
+						rowSpan: data.filter((item) => item["day"] === record["day"])
+							.length,
+					};
+				}
+				prevDay.current = record["day"];
+				return {
+					rowSpan: 0,
+				};
+			},
+		},
+		{
+			title: "Phần",
+			dataIndex: "part",
+			onCell: (record) => {
+				if (record["part"] !== prevPart.current) {
+					prevPart.current = record["part"];
+					return {
+						rowSpan: data.filter((item) => item["part"] === record["part"])
+							.length,
+					};
+				}
+				prevPart.current = record["part"];
+				return {
+					rowSpan: 0,
+				};
+			},
+		},
+		{
+			title: "Nội dung",
+			dataIndex: "content",
+			onCell: (record) => {
+				if (record["content"] !== prevContent.current) {
+					prevContent.current = record["content"];
+					return {
+						rowSpan: data.filter(
+							(item) => item["content"] === record["content"]
+						).length,
+					};
+				}
+				prevContent.current = record["content"];
+				return {
+					rowSpan: 0,
+				};
+			},
+		},
+		{
+			title: "Chi tiết",
+			dataIndex: "detail",
+		},
+	];
+
+	const data = unpack(
+		COURSES_LIST["nodejs"],
+		...columns.map((column) => column.dataIndex)
+	);
+
+	const { isMobile } = useContext(AppContext);
+
+	return (
+		<Row gutter={[0, 16]} style={{ paddingTop: "1rem" }}>
 			<Col xs={24} style={colAllCenter}>
 				<Typography.Title level={3} className="no-margin-bottom">
 					{COURSES_LIST[course]["title"]}
@@ -58,64 +168,14 @@ const Course = ({ course }) => {
 				</Typography.Text>
 			</Col>
 			<Col xs={24} style={colAllCenter}>
-				<Typography.Title level={5} className="no-margin-bottom">
-					Người hướng dẫn
-				</Typography.Title>
-			</Col>
-			{COURSES_LIST[course]["teachers"].map((teacher, i) => (
-				<Row key={i} style={{ width: "100%" }}>
-					<Col xs={24}>
-						<Typography.Text>
-							<b>Họ tên: </b>
-							{teacher["name"]}
-						</Typography.Text>
-					</Col>
-					{teacher["experience"] && (
-						<Col xs={24}>
-							<Typography.Text>
-								<b>Kinh nghiệm: </b>
-								{teacher["experience"]}
-							</Typography.Text>
-						</Col>
-					)}
-					{teacher["business"] && (
-						<Col xs={24}>
-							<Typography.Text>
-								<b>Công tác: </b>
-								{teacher["business"]}
-							</Typography.Text>
-						</Col>
-					)}
-					{teacher["prizes"] && (
-						<Col xs={24}>
-							<Typography.Text>
-								<b>Thành tích nổi bật: </b>
-							</Typography.Text>
-							<ul>
-								{teacher["prizes"].map((prize, i) => (
-									<li key={i}>{prize}</li>
-								))}
-							</ul>
-						</Col>
-					)}
-					{teacher["description"] && (
-						<Col xs={24} style={colAllCenter}>
-							<Typography.Paragraph
-								style={{ textAlign: "justify", lineHeight: "2rem" }}>
-								<b>Giới thiệu: </b>
-								{teacher["description"]}
-							</Typography.Paragraph>
-						</Col>
-					)}
-				</Row>
-			))}
-			<Col xs={24} style={colAllCenter}>
-				<Typography.Title level={5} className="no-margin-bottom">
-					Chương trình học
-				</Typography.Title>
+				<Typography.Title level={3}>Chương trình học</Typography.Title>
 			</Col>
 			<Col xs={24}>
-				<Lessons lessons={COURSES_LIST[course]["lessons"]} />
+				{isMobile ? (
+					<_Lessons lessons={COURSES_LIST[course]["lessons"]} />
+				) : (
+					<Lessons data={data} columns={columns} />
+				)}
 			</Col>
 			<Col xs={24} style={colAllCenter}>
 				<Typography.Title level={5} className="no-margin-bottom">
@@ -123,11 +183,27 @@ const Course = ({ course }) => {
 				</Typography.Title>
 			</Col>
 			<Col xs={24}>
-				<ul style={{ color: "white", marginLeft: "2rem" }}>
+				<Carousel
+					autoplay
+					className="carousel__container"
+					style={{
+						height: "160px",
+						color: "#fff",
+						textAlign: "center",
+						border: "1px solid white",
+						borderStyle: "dashed",
+						borderRadius: "1rem",
+						display: "flex",
+						alignItems: "center",
+					}}>
 					{COURSES_LIST[course]["goals"].map((goal, i) => (
-						<li key={i}>{goal}</li>
+						<div key={i}>
+							<h3 style={{ paddingLeft: "1rem", paddingRight: "1rem" }}>
+								{goal}
+							</h3>
+						</div>
 					))}
-				</ul>
+				</Carousel>
 			</Col>
 		</Row>
 	);

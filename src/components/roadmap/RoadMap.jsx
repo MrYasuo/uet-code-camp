@@ -12,6 +12,8 @@ import { TIMELINE_START, TIMELINE_END } from "@/constants";
 import { Link } from "react-router-dom";
 import "aos/dist/aos.css";
 import "./RoadMap.css";
+import { useContext } from "react";
+import { AppContext } from "@/contexts";
 
 const { Panel } = Collapse;
 
@@ -43,17 +45,19 @@ const items = [...TIMELINE_START, ...TIMELINE_END].map((item, i) => ({
 }));
 
 const RoadMap = () => {
+	const { isMobile, isDesktop } = useContext(AppContext);
 	return (
 		<ConfigProvider
 			theme={{
 				token: {
-					fontSize: "1.25rem",
+					fontSize: isDesktop ? "1.25rem" : "1rem",
 					fontSizeHeading1: "2rem",
+					lineHeight: "2rem",
 				},
 			}}>
 			<Row
 				gutter={[0, 16]}
-				style={{ padding: "5rem" }}
+				style={{ padding: isMobile ? "2rem" : "5rem" }}
 				className="roadmap__container">
 				<Col xs={24}>
 					<Typography.Title className="center-text">

@@ -57,49 +57,60 @@ const CustomButtonLink = ({ button, buttonName, color = "white" }) => {
 
 const CustomMenuHorizontalChildren = ({ buttonsList }) => {
 	return (
-		<Menu
-			disabledOverflow={true}
-			mode="horizontal"
-			style={{
-				padding: 0,
-				fontSize: "1.5rem",
-				borderBottom: "1px solid #6a4f73",
-			}}
-			items={[
-				{
-					label: <FontAwesomeIcon icon={faSquareCaretDown} />,
-					key: "menu",
-					children: Object.keys(buttonsList).map((buttonName) => ({
-						key: buttonName,
-						label: (
-							<CustomButtonLink
-								color="black"
-								button={buttonsList[buttonName]}
-								buttonName={buttonName}
-							/>
-						),
-						children:
-							buttonsList[buttonName]["children"] &&
-							Object.keys(buttonsList[buttonName]["children"]).map(
-								(additionalButtonName) => ({
-									key: additionalButtonName,
+		<ConfigProvider
+			theme={{
+				token: {
+					margin: 50,
+					fontSizeLG: "1.5rem",
+					fontSize: "1.5rem",
+					fontSizeXL: "1.5rem",
+					fontSizeSM: "1.5rem",
+				},
+			}}>
+			<div className="menu__container">
+				<Menu
+					disabledOverflow={true}
+					mode="horizontal"
+					style={{
+						padding: 0,
+						fontSize: "1.5rem",
+						borderBottom: "1px solid #6a4f73",
+					}}
+					items={[
+						{
+							label: <FontAwesomeIcon icon={faSquareCaretDown} />,
+							key: "menu",
+							children: Object.entries(buttonsList).map(
+								([buttonName, attr]) => ({
+									key: buttonName,
 									label: (
 										<CustomButtonLink
 											color="black"
-											button={
-												buttonsList[buttonName]["children"][
-													additionalButtonName
-												]
-											}
-											buttonName={additionalButtonName}
+											button={attr}
+											buttonName={buttonName}
 										/>
 									),
+									children:
+										attr["children"] &&
+										Object.entries(attr["children"]).map(
+											([additionalButtonName, childAttr]) => ({
+												key: additionalButtonName,
+												label: (
+													<CustomButtonLink
+														color="black"
+														button={childAttr}
+														buttonName={additionalButtonName}
+													/>
+												),
+											})
+										),
 								})
 							),
-					})),
-				},
-			]}
-		/>
+						},
+					]}
+				/>
+			</div>
+		</ConfigProvider>
 	);
 };
 
@@ -111,27 +122,18 @@ const CustomMenuVerticalChildren = ({ buttonsList }) => {
 				style={{ backgroundColor: "transparent" }}
 				mode="horizontal"
 				className="no-border-bottom"
-				items={Object.keys(buttonsList).map((buttonName, i) => {
+				items={Object.entries(buttonsList).map(([buttonName, attr], i) => {
 					return {
 						key: i,
-						label: (
-							<CustomButtonLink
-								button={buttonsList[buttonName]}
-								buttonName={buttonName}
-							/>
-						),
+						label: <CustomButtonLink button={attr} buttonName={buttonName} />,
 						children:
-							buttonsList[buttonName]["children"] &&
-							Object.keys(buttonsList[buttonName]["children"]).map(
-								(additionalButtonName) => ({
+							attr["children"] &&
+							Object.entries(attr["children"]).map(
+								([additionalButtonName, childAttr]) => ({
 									label: (
 										<CustomButtonLink
 											color="black"
-											button={
-												buttonsList[buttonName]["children"][
-													additionalButtonName
-												]
-											}
+											button={childAttr}
 											buttonName={additionalButtonName}
 										/>
 									),
